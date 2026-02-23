@@ -1,3 +1,7 @@
+architect: roroche
+
 merge:
   script:
     - mvn clean install -DskipTests
+  squash: false
+  rebase: true
