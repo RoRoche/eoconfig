@@ -4,6 +4,7 @@ default: help
 lint: ## Check code formatting
 	@mvn sortpom:verify
 	@mvn license:check
+	@mvn qulice:check
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
