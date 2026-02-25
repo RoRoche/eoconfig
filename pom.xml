@@ -3,20 +3,28 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.roroche</groupId>
   <artifactId>eoconfig</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
   <name>eoconfig</name>
   <url>http://maven.apache.org</url>
   <properties>
     <sortpom.version>4.0.0</sortpom.version>
     <license-maven-plugin.version>5.0.0</license-maven-plugin.version>
+    <qulice.version>0.25.1</qulice.version>
+    <junit.version>5.10.2</junit.version>
     <jacoco.version>0.8.10</jacoco.version>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -89,6 +97,21 @@
                     </configuration>
                 </execution>
                 -->
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.qulice</groupId>
+        <artifactId>qulice-maven-plugin</artifactId>
+        <version>${qulice.version}</version>
+        <configuration>
+          <skip>false</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
         </executions>
       </plugin>
     </plugins>
