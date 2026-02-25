@@ -29,3 +29,18 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B -ntp clean verify
+
+      - name: Upload JaCoCo HTML report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-html-report
+          path: target/site/jacoco
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: target/site/jacoco/jacoco.xml
+          fail_ci_if_error: true
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
