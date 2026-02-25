@@ -21,19 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 /**
- * Unit test for simple App.
- *
- * @since 0.0.1
+ * This package contains the main classes of the project.
  */
-final class AppTest {
-    @Test
-    void shouldAddTwoNumbers() {
-        Assertions.assertEquals(3, 1 + 2);
-    }
-}
+package com.github.roroche;
