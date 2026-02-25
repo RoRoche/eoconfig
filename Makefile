@@ -5,6 +5,7 @@ lint: ## Check code formatting
 	@mvn sortpom:verify
 	@mvn license:check
 	@mvn qulice:check
+	@mvn youshallnotpass:youshallnotpass
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
