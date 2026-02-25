@@ -4,8 +4,9 @@ Elegant Objects library to deal with Java Properties.
 
 [![Build Status](https://github.com/RoRoche/eoconfig/actions/workflows/build.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions)
 
-![Elegant Objects](https://www.elegantobjects.org/badge.svg)
-![intellij-idea](https://www.elegantobjects.org/intellij-idea.svg)
+![EO principles respected here](https://www.elegantobjects.org/badge.svg)
+[![DevOps By Rultor.com](https://www.rultor.com/b/RoRoche/eoconfig)](https://www.rultor.com/p/RoRoche/eoconfig)
+![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)
 
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eoconfig)](https://www.0pdd.com/p?name=RoRoche/eoconfig)
 
