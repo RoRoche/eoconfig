@@ -10,7 +10,7 @@
   <properties>
     <sortpom.version>4.0.0</sortpom.version>
     <license-maven-plugin.version>5.0.0</license-maven-plugin.version>
-      <jacoco.version>0.8.10</jacoco.version>
+    <jacoco.version>0.8.10</jacoco.version>
   </properties>
   <dependencies>
     <dependency>
@@ -53,29 +53,29 @@
           </licenseSets>
         </configuration>
       </plugin>
-        <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>${jacoco.version}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>report</id>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                    <phase>test</phase>
-                </execution>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <phase>test</phase>
+          </execution>
+          <!-- TODO: Refactor: restore the configuration for the check goal when the coverage is good enough
                 <execution>
                     <id>check</id>
                     <goals>
                         <goal>check</goal>
                     </goals>
-                    <!-- TODO: Refactor: restore the configuration for the check goal when the coverage is good enough
                     <configuration>
                         <rules>
                             <rule>
@@ -87,10 +87,10 @@
                             </rule>
                         </rules>
                     </configuration>
-                    -->
                 </execution>
-            </executions>
-        </plugin>
+                -->
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
