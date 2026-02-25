@@ -9,6 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <sortpom.version>4.0.0</sortpom.version>
+    <license-maven-plugin.version>5.0.0</license-maven-plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -31,6 +32,25 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>${license-maven-plugin.version}</version>
+        <configuration>
+          <properties>
+            <owner>Romain Rochegude</owner>
+            <email>romain.rochegude@gmail.com</email>
+          </properties>
+          <licenseSets>
+            <licenseSet>
+              <header>LICENSE</header>
+              <includes>
+                <include>**/*.java</include>
+              </includes>
+            </licenseSet>
+          </licenseSets>
+        </configuration>
       </plugin>
     </plugins>
   </build>
