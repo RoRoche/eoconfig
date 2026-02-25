@@ -17,6 +17,7 @@
     <qulice.version>0.25.1</qulice.version>
     <junit.version>5.10.2</junit.version>
     <jacoco.version>0.8.10</jacoco.version>
+      <youshallnotpass.version>0.6.0</youshallnotpass.version>
   </properties>
   <dependencies>
     <dependency>
@@ -126,6 +127,46 @@
           </execution>
         </executions>
       </plugin>
+        <plugin>
+            <groupId>dev.youshallnotpass</groupId>
+            <artifactId>youshallnotpass-maven-plugin</artifactId>
+            <version>${youshallnotpass.version}</version>
+            <configuration>
+                <offline>true</offline>
+                <nullfree>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                    <skipComparisons>false</skipComparisons>
+                </nullfree>
+                <staticfree>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                </staticfree>
+                <allfinal>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                    <skipInterfaceMethodParams>true</skipInterfaceMethodParams>
+                    <skipLambdaParams>false</skipLambdaParams>
+                    <skipCatchParams>false</skipCatchParams>
+                </allfinal>
+                <allpublic>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                </allpublic>
+                <setterfree>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                </setterfree>
+                <nomultiplereturn>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                </nomultiplereturn>
+                <inheritancefree>
+                    <disabled>false</disabled>
+                    <threshold>0</threshold>
+                </inheritancefree>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
