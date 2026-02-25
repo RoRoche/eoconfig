@@ -3,9 +3,11 @@ default: help
 
 lint: ## Check code formatting
 	@mvn sortpom:verify
+	@mvn license:check
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
+	@mvn license:format
 
 help: ## Show this help message
 	@echo ""
