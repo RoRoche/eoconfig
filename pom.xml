@@ -70,7 +70,7 @@
             </goals>
             <phase>test</phase>
           </execution>
-          <!-- TODO: Refactor: restore the configuration for the check goal when the coverage is good enough
+          <!-- @todo #27:5m/DEV restore the configuration for the check goal when the coverage is good enough
                 <execution>
                     <id>check</id>
                     <goals>
