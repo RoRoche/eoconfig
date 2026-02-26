@@ -1,4 +1,10 @@
-architect: roroche
+docker:
+  image: maven:3.9.6-eclipse-temurin-21
+
+architect: RoRoche
+
+install: |
+  mvn -version
 
 merge:
   script:
