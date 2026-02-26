@@ -21,28 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.roroche;
-
 /**
- * Hello world!
- *
- * @since 0.0.1
+ * This package contains the main classes of the project.
  */
-public final class App {
-
-    /**
-     * Constructs an App instance.
-     */
-    private App() {
-        // empty constructor
-    }
-
-    /**
-     * The main method of the application.
-     *
-     * @param args The command line arguments
-     */
-    public static void main(final String[] args) {
-        // empty main method
-    }
-}
+package com.github.roroche;
