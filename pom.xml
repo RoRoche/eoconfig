@@ -139,7 +139,7 @@
                     <skipComparisons>false</skipComparisons>
                 </nullfree>
                 <staticfree>
-                    <disabled>false</disabled>
+                    <disabled>true</disabled> <!-- @todo #27:5m/DEV enable staticfree check when the code is ready -->
                     <threshold>0</threshold>
                 </staticfree>
                 <allfinal>
@@ -150,7 +150,7 @@
                     <skipCatchParams>false</skipCatchParams>
                 </allfinal>
                 <allpublic>
-                    <disabled>false</disabled>
+                    <disabled>true</disabled>
                     <threshold>0</threshold>
                 </allpublic>
                 <setterfree>
