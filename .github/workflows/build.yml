@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  id-token: write   # mandatory for OIDC Codecov
+
 jobs:
   build:
     name: Build with Java 21
@@ -40,7 +44,6 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           files: target/site/jacoco/jacoco.xml
+          use_oidc: true
           fail_ci_if_error: true
           verbose: true
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
