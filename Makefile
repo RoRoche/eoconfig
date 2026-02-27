@@ -6,6 +6,7 @@ lint: ## Check code formatting
 	@mvn license:check
 	@mvn qulice:check
 	@mvn youshallnotpass:youshallnotpass
+	@mvn jtcop:check
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
