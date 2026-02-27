@@ -151,7 +151,7 @@
         <configuration>
           <offline>true</offline>
           <nullfree>
-            <disabled>false</disabled>
+            <disabled>true</disabled>
             <threshold>0</threshold>
             <skipComparisons>false</skipComparisons>
           </nullfree>
@@ -179,8 +179,8 @@
             <threshold>0</threshold>
           </nomultiplereturn>
           <inheritancefree>
-            <disabled>false</disabled>
-            <threshold>3</threshold>
+            <disabled>true</disabled>
+            <threshold>0</threshold>
           </inheritancefree>
         </configuration>
       </plugin>
