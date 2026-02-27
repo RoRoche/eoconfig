@@ -32,12 +32,12 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.0.1
  */
-final class AppTest {
+final class AddTest {
     @Test
     void addsTwoNumbers() {
         MatcherAssert.assertThat(
             "Adding two numbers should return the correct result",
-            new App().add(1, 2),
+            new Add(1, 2).value(),
             IsEqual.equalTo(3)
         );
     }

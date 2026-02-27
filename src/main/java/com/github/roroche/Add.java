@@ -28,23 +28,36 @@ package com.github.roroche;
  *
  * @since 0.0.1
  */
-public final class App {
+public final class Add {
+
+    /**
+     * The first integer.
+     */
+    private final int first;
+
+    /**
+     * The second integer.
+     */
+    private final int second;
 
     /**
      * Constructs an App instance.
+     *
+     * @param first The first integer
+     * @param second The second integer
      */
-    public App() {
-        // empty constructor
+    public Add(final int first, final int second) {
+        this.first = first;
+        this.second = second;
     }
 
     /**
      * Method to add two integers.
      *
-     * @param first The first integer
-     * @param second The second integer
+     *
      * @return The sum of first and second
      */
-    public int add(final int first, final int second) {
-        return first + second;
+    public int value() {
+        return this.first + this.second;
     }
 }
