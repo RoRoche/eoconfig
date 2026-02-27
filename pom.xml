@@ -21,7 +21,7 @@
       <youshallnotpass.version>0.6.0</youshallnotpass.version>
       <jtcop.version>1.4.3</jtcop.version>
       <pitest.version>1.15.2</pitest.version>
-      <pitest.junit5.plugin.version>1.2.1</pitest.junit5.plugin.version>
+      <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
   </properties>
   <dependencies>
