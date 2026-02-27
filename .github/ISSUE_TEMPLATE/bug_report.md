@@ -1,32 +1,73 @@
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG] Short description here"
+---
+about: Report a reproducible problem
 labels: bug
-assignees: ''
-
+name: 🐛 Bug report
+title: 🐛 Short and explicit title
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 🧾 Description
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. See error
+A clear and concise description of the problem.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+What is happening?
 
-**Screenshots / Logs**
-If applicable, add screenshots or logs to help explain your problem.
+------------------------------------------------------------------------
 
-**Environment:**
-- OS: [e.g. macOS, Windows, Linux]
-- Java version: [e.g. 17]
-- Maven version: [e.g. 3.9.6]
+## 🔁 Steps to Reproduce
 
-**Additional context**
-Add any other context about the problem here.
+Please provide a minimal, reproducible example.
 
-**Reference related issue/PR if applicable**
+1.  Run `...`
+2.  Call method `...`
+3.  Observe the error
+
+If possible, include a code snippet:
+
+``` java
+// Minimal reproducible example
+```
+
+------------------------------------------------------------------------
+
+## ✅ Expected Behavior
+
+What did you expect to happen instead?
+
+------------------------------------------------------------------------
+
+## 📸 Logs / Screenshots
+
+If applicable, paste logs or screenshots here.
+
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+Click to expand logs
+```{=html}
+</summary>
+```
+``` text
+Paste stacktrace here
+```
+
+```{=html}
+</details>
+```
+
+------------------------------------------------------------------------
+
+## 🖥 Environment
+
+-   OS: e.g. macOS, Linux, Windows
+-   Java version: `java -version`
+-   Maven version: `mvn -version`
+-   Project version / commit SHA:
+
+------------------------------------------------------------------------
+
+## ℹ️ Additional Context
+
+Add any other context, references, or related issues here.
