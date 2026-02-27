@@ -23,7 +23,8 @@
  */
 package com.github.roroche;
 
-import org.junit.jupiter.api.Assertions;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -33,7 +34,11 @@ import org.junit.jupiter.api.Test;
  */
 final class AppTest {
     @Test
-    void shouldAddTwoNumbers() {
-        Assertions.assertEquals(3, 1 + 2);
+    void addsTwoNumbers() {
+        MatcherAssert.assertThat(
+            "Adding two numbers should return the correct result",
+            1 + 2,
+            IsEqual.equalTo(3)
+        );
     }
 }
