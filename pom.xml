@@ -189,7 +189,6 @@
             <goals>
               <goal>exec</goal>
             </goals>
-            <phase>verify</phase>
             <configuration>
               <executable>yamllint</executable>
               <arguments>
