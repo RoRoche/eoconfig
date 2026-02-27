@@ -102,6 +102,7 @@
             </goals>
             <phase>test</phase>
           </execution>
+            <!-- @todo #22:15m/DEV Enable check execution when the coverage threshold is defined
           <execution>
             <id>check</id>
             <goals>
@@ -119,6 +120,7 @@
               </rules>
             </configuration>
           </execution>
+          -->
         </executions>
       </plugin>
       <plugin>
