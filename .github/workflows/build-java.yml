@@ -50,3 +50,6 @@ jobs:
 
       - name: You should not pass
         run: mvn youshallnotpass:youshallnotpass
+
+      - name: jtcop
+        run: mvn jtcop:check
