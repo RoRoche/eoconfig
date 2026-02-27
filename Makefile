@@ -7,6 +7,7 @@ lint: ## Check code formatting
 	@mvn qulice:check
 	@mvn youshallnotpass:youshallnotpass
 	@mvn jtcop:check
+	@mvn exec:exec -Dexec.executable=yamllint -Dexec.args="."
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
