@@ -102,7 +102,6 @@
             </goals>
             <phase>test</phase>
           </execution>
-          <!-- @todo #27:5m/DEV restore the configuration for the check goal when the coverage is good enough
                 <execution>
                     <id>check</id>
                     <goals>
@@ -120,7 +119,6 @@
                         </rules>
                     </configuration>
                 </execution>
-                -->
         </executions>
       </plugin>
       <plugin>
@@ -150,8 +148,7 @@
             <skipComparisons>false</skipComparisons>
           </nullfree>
           <staticfree>
-            <disabled>true</disabled>
-            <!-- @todo #27:5m/DEV enable staticfree check when the code is ready -->
+            <disabled>false</disabled>
             <threshold>0</threshold>
           </staticfree>
           <allfinal>
