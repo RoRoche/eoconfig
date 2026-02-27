@@ -172,7 +172,7 @@
           </nomultiplereturn>
           <inheritancefree>
             <disabled>false</disabled>
-            <threshold>0</threshold>
+            <threshold>3</threshold>
           </inheritancefree>
         </configuration>
       </plugin>
