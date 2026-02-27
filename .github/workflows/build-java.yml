@@ -1,4 +1,4 @@
-name: Java 21 CI (Maven)
+name: Java 17 CI (Maven)
 
 on:
   push:
@@ -14,18 +14,18 @@ permissions:
 
 jobs:
   build:
-    name: Build with Java 21
+    name: Build with Java 17
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 17
           cache: maven
 
       - name: Verify Java version
