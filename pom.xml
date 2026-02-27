@@ -18,6 +18,7 @@
     <junit.version>5.10.2</junit.version>
     <jacoco.version>0.8.10</jacoco.version>
       <youshallnotpass.version>0.6.0</youshallnotpass.version>
+      <jtcop.version>1.4.3</jtcop.version>
   </properties>
   <dependencies>
     <dependency>
@@ -166,6 +167,19 @@
                     <threshold>0</threshold>
                 </inheritancefree>
             </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>com.github.volodya-lombrozo</groupId>
+            <artifactId>jtcop-maven-plugin</artifactId>
+            <version>${jtcop.version}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
   </build>
