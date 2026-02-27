@@ -36,7 +36,7 @@ jobs:
         run: mvn -B -ntp clean verify
 
       - name: Upload JaCoCo HTML report as artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: jacoco-html-report
           path: target/site/jacoco
@@ -59,7 +59,7 @@ jobs:
         run: mvn org.pitest:pitest-maven:mutationCoverage
 
       - name: Upload PIT HTML report as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pit-html-report
           path: target/pit-reports
