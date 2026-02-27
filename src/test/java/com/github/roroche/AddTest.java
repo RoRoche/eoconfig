@@ -37,7 +37,7 @@ final class AppTest {
     void addsTwoNumbers() {
         MatcherAssert.assertThat(
             "Adding two numbers should return the correct result",
-            1 + 2,
+            new App().add(1, 2),
             IsEqual.equalTo(3)
         );
     }

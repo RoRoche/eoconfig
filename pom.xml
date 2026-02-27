@@ -20,6 +20,8 @@
     <jacoco.version>0.8.10</jacoco.version>
       <youshallnotpass.version>0.6.0</youshallnotpass.version>
       <jtcop.version>1.4.3</jtcop.version>
+      <pitest.version>1.15.2</pitest.version>
+      <pitest.junit5.plugin.version>1.2.1</pitest.junit5.plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -186,6 +188,35 @@
                     </goals>
                 </execution>
             </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>${pitest.version}</version>
+            <configuration>
+                <targetClasses>
+                    <param>com.github.roroche.*</param>
+                </targetClasses>
+                <targetTests>
+                    <param>com.github.roroche.*</param>
+                </targetTests>
+                <mutators>
+                    <mutator>DEFAULTS</mutator>
+                </mutators>
+                <outputFormats>
+                    <param>HTML</param>
+                </outputFormats>
+                <timestampedReports>false</timestampedReports>
+                <junit5Plugin>true</junit5Plugin>
+                <verbose>true</verbose>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-junit5-plugin</artifactId>
+                    <version>${pitest.junit5.plugin.version}</version>
+                </dependency>
+            </dependencies>
         </plugin>
     </plugins>
   </build>

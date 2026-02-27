@@ -33,16 +33,18 @@ public final class App {
     /**
      * Constructs an App instance.
      */
-    private App() {
+    public App() {
         // empty constructor
     }
 
     /**
-     * The main method of the application.
+     * Method to add two integers.
      *
-     * @param args The command line arguments
+     * @param first The first integer
+     * @param second The second integer
+     * @return The sum of first and second
      */
-    public static void main(final String[] args) {
-        // empty main method
+    public int add(final int first, final int second) {
+        return first + second;
     }
 }
