@@ -1,3 +1,4 @@
+---
 name: Java 17 CI (Maven)
 
 on:
