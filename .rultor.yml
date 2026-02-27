@@ -1,3 +1,6 @@
+docker:
+  image: yegor256/java
+
 architect: RoRoche
 
 install: |
