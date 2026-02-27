@@ -23,11 +23,42 @@
  */
 package com.github.roroche.eoconfig;
 
+import java.util.Properties;
+import org.cactoos.Scalar;
+
 /**
  * A utility class for creating configurations from {@link java.util.Properties}.
  *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to create configurations from Properties
  */
-public final class ConfigurationOf {
+public final class ConfigurationOf implements Configuration {
+
+    /**
+     * The properties to create the configuration from.
+     */
+    private final Properties props;
+
+    /**
+     * Primary constructor.
+     *
+     * @param props The properties to create the configuration from
+     */
+    public ConfigurationOf(final Properties props) {
+        this.props = props;
+    }
+
+    /**
+     * Secondary constructor that accepts a {@link Scalar} of {@link Properties}.
+     *
+     * @param props The scalar of properties to create the configuration from
+     * @throws Exception If an error occurs while retrieving the properties from the scalar
+     */
+    public ConfigurationOf(final Scalar<Properties> props) throws Exception {
+        this(props.value());
+    }
+
+    @Override
+    public Properties properties() {
+        return this.props;
+    }
 }
