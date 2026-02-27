@@ -8,7 +8,7 @@
   <name>eoconfig</name>
   <url>http://maven.apache.org</url>
   <properties>
-    <java.version>21</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
