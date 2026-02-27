@@ -3,6 +3,7 @@
 Elegant Objects library to deal with Java Properties.
 
 [![Build Status](https://github.com/RoRoche/eoconfig/actions/workflows/build-java.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions)
+[![YAML Lint](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml)
 
 ![EO principles respected here](https://www.elegantobjects.org/badge.svg)
 [![DevOps By Rultor.com](https://www.rultor.com/b/RoRoche/eoconfig)](https://www.rultor.com/p/RoRoche/eoconfig)

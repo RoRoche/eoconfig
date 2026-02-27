@@ -22,6 +22,7 @@
       <jtcop.version>1.4.3</jtcop.version>
       <pitest.version>1.15.2</pitest.version>
       <pitest.junit5.plugin.version>1.2.1</pitest.junit5.plugin.version>
+    <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
   </properties>
   <dependencies>
     <dependency>
@@ -137,46 +138,67 @@
           </execution>
         </executions>
       </plugin>
-        <plugin>
-            <groupId>dev.youshallnotpass</groupId>
-            <artifactId>youshallnotpass-maven-plugin</artifactId>
-            <version>${youshallnotpass.version}</version>
+      <plugin>
+        <groupId>dev.youshallnotpass</groupId>
+        <artifactId>youshallnotpass-maven-plugin</artifactId>
+        <version>${youshallnotpass.version}</version>
+        <configuration>
+          <offline>true</offline>
+          <nullfree>
+            <disabled>false</disabled>
+            <threshold>0</threshold>
+            <skipComparisons>false</skipComparisons>
+          </nullfree>
+          <staticfree>
+            <disabled>true</disabled>
+            <!-- @todo #27:5m/DEV enable staticfree check when the code is ready -->
+            <threshold>0</threshold>
+          </staticfree>
+          <allfinal>
+            <disabled>false</disabled>
+            <threshold>0</threshold>
+            <skipInterfaceMethodParams>true</skipInterfaceMethodParams>
+            <skipLambdaParams>false</skipLambdaParams>
+            <skipCatchParams>false</skipCatchParams>
+          </allfinal>
+          <allpublic>
+            <disabled>true</disabled>
+            <threshold>0</threshold>
+          </allpublic>
+          <setterfree>
+            <disabled>false</disabled>
+            <threshold>0</threshold>
+          </setterfree>
+          <nomultiplereturn>
+            <disabled>false</disabled>
+            <threshold>0</threshold>
+          </nomultiplereturn>
+          <inheritancefree>
+            <disabled>false</disabled>
+            <threshold>0</threshold>
+          </inheritancefree>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>yamllint</id>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <phase>verify</phase>
             <configuration>
-                <offline>true</offline>
-                <nullfree>
-                    <disabled>false</disabled>
-                    <threshold>0</threshold>
-                    <skipComparisons>false</skipComparisons>
-                </nullfree>
-                <staticfree>
-                    <disabled>true</disabled> <!-- @todo #27:5m/DEV enable staticfree check when the code is ready -->
-                    <threshold>0</threshold>
-                </staticfree>
-                <allfinal>
-                    <disabled>false</disabled>
-                    <threshold>0</threshold>
-                    <skipInterfaceMethodParams>true</skipInterfaceMethodParams>
-                    <skipLambdaParams>false</skipLambdaParams>
-                    <skipCatchParams>false</skipCatchParams>
-                </allfinal>
-                <allpublic>
-                    <disabled>true</disabled>
-                    <threshold>0</threshold>
-                </allpublic>
-                <setterfree>
-                    <disabled>false</disabled>
-                    <threshold>0</threshold>
-                </setterfree>
-                <nomultiplereturn>
-                    <disabled>false</disabled>
-                    <threshold>0</threshold>
-                </nomultiplereturn>
-                <inheritancefree>
-                    <disabled>false</disabled>
-                    <threshold>0</threshold>
-                </inheritancefree>
+              <executable>yamllint</executable>
+              <arguments>
+                <argument>.</argument>
+              </arguments>
             </configuration>
-        </plugin>
+          </execution>
+        </executions>
+      </plugin>
         <plugin>
             <groupId>com.github.volodya-lombrozo</groupId>
             <artifactId>jtcop-maven-plugin</artifactId>
