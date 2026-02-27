@@ -8,6 +8,7 @@ lint: ## Check code formatting
 	@mvn youshallnotpass:youshallnotpass
 	@mvn jtcop:check
 	@mvn exec:exec -Dexec.executable=yamllint -Dexec.args="."
+	@npx markdownlint "**/*.md"
 
 lint-fix: ## Fix formatting automatically
 	@mvn sortpom:sort
