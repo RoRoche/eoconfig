@@ -25,12 +25,18 @@
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
     <cactoos.version>0.57.0</cactoos.version>
+    <config.version>1.4.4</config.version>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.cactoos</groupId>
       <artifactId>cactoos</artifactId>
       <version>${cactoos.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>${config.version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
