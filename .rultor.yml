@@ -18,4 +18,8 @@ release:
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
     mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
     git commit -am ":bookmark: ${tag}"
+    echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+    echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+    echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+    gpgconf --kill gpg-agent
     mvn -B -P release clean deploy
