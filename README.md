@@ -4,7 +4,7 @@ Elegant Objects library to deal with Java Properties.
 
 [![Build Status](https://github.com/RoRoche/eoconfig/actions/workflows/build-java.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions)
 [![YAML Lint](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml)
-![Markdown Lint](https://github.com/RoRoche/eoconfig/actions/workflows/markdown-lint.yml/badge.svg)
+![Nodes.js CI](https://github.com/RoRoche/eoconfig/actions/workflows/build-npm.yml/badge.svg)
 
 ![EO principles respected here](https://www.elegantobjects.org/badge.svg)
 [![DevOps By Rultor.com](https://www.rultor.com/b/RoRoche/eoconfig)](https://www.rultor.com/p/RoRoche/eoconfig)
@@ -12,7 +12,7 @@ Elegant Objects library to deal with Java Properties.
 
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eoconfig)](https://www.0pdd.com/p?name=RoRoche/eoconfig)
 
-[![codecov](https://codecov.io/gh/RoRoche/eoconfig/branch/main/graph/badge.svg)](https://codecov.io/gh/RoRoche/eoconfig)
+[![codecov](https://app.codecov.io/gh/RoRoche/eoconfig/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RoRoche/eoconfig)
 
 [![Hits-of-Code](https://hitsofcode.com/github/RoRoche/eoconfig?branch=main)](https://hitsofcode.com/github/RoRoche/eoconfig/view?branch=main)
 

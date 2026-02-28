@@ -1,7 +1,7 @@
 # Contributing to This Project
 
 Welcome! 👋
-We love contributions from the community. By participating, you agree to follow a few simple guidelines to keep our project healthy and sustainable.
+We love contributions from the community. By participating, you agree to follow a set of simple guidelines to keep our project healthy and sustainable.
 
 ## Table of Contents
 
@@ -103,6 +103,6 @@ When reporting a bug or suggesting a feature, please:
 
 ## References
 
-- [GitHub Flow](https://guides.github.com/introduction/flow/)
+- [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow)
 - [Semantic Commit Messages](https://www.conventionalcommits.org/)
 - [Yegor256 GitHub Guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html)
