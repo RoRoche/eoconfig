@@ -74,7 +74,7 @@ final class EnvironmentConfigurationTest {
     @Test
     void isEmpty() {
         MatcherAssert.assertThat(
-            "A EnvironementConfiguration can be created from empty list",
+            "A EnvironmentConfiguration can be created from empty list",
             new EnvironmentConfiguration(new ListOf<>()),
             new HasConfiguration(
                 new IsEmptyProperties()

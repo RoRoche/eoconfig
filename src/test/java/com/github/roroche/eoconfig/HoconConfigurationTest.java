@@ -39,7 +39,7 @@ final class HoconConfigurationTest {
     @Test
     void isFromHoconFromStringOk() {
         MatcherAssert.assertThat(
-            "A Configuration from Hocon string contains value for key",
+            "A Configuration from HOCON string contains value for key",
             new HoconConfiguration(
                 "key.test = value.test"
             ),
@@ -52,7 +52,7 @@ final class HoconConfigurationTest {
     @Test
     void isFromHoconFromFileOk() {
         MatcherAssert.assertThat(
-            "A Configuration from Hocon file contains value for key",
+            "A Configuration from HOCON file contains value for key",
             new HoconConfiguration(
                 ConfigFactory.parseResources("config/application-test.conf").resolve()
             ),

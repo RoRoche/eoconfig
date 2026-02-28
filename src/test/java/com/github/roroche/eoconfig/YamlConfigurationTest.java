@@ -30,48 +30,72 @@ import com.github.roroche.eoconfig.matchers.ThrowsException;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
+import org.hamcrest.core.StringContains;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link FileConfiguration}.
+ * Test case for {@link YamlConfiguration}.
  *
  * @since 0.0.1
  */
-final class FileConfigurationTest {
+final class YamlConfigurationTest {
     @Test
-    void isOk() {
+    void isOk() throws Exception {
         MatcherAssert.assertThat(
-            "A FileConfiguration can be created from a file name",
-            new FileConfiguration("application-test.properties"),
+            "A YamlConfiguration can be created from Map.Entry",
+            new YamlConfiguration("application-properties.yml"),
             new HasConfiguration(
                 new AllOf<>(
                     new IsNot<>(new IsEmptyProperties()),
-                    new HasProperty("app.name", "TestApp"),
-                    new HasProperty("app.version", "2.0.0")
+                    new HasProperty("server.host", "localhost"),
+                    new HasProperty("server.port", "8080"),
+                    new HasProperty("database.url", "jdbc:postgresql://localhost/db"),
+                    new HasProperty("database.user", "admin")
                 )
             )
         );
     }
 
+    /*
+     * @checkstyle IllegalCatchCheck (18 lines)
+     */
+    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.AvoidThrowingRawExceptionTypes"})
     @Test
     void isEmpty() {
         MatcherAssert.assertThat(
-            "A FileConfiguration can be created from empty Properties",
-            new FileConfiguration("empty.properties"),
-            new HasConfiguration(
-                new IsEmptyProperties()
+            "A YamlConfiguration throws from empty Properties",
+            () -> {
+                try {
+                    new YamlConfiguration("empty-application-properties.yml");
+                } catch (final Exception exception) {
+                    throw new RuntimeException(exception.getMessage(), exception);
+                }
+            },
+            new ThrowsException(
+                RuntimeException.class,
+                new StringContains("No content to map due to end-of-input")
             )
         );
     }
 
+    /*
+     * @checkstyle IllegalCatchCheck (18 lines)
+     */
+    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.AvoidThrowingRawExceptionTypes"})
     @Test
     void doesNotExist() {
         MatcherAssert.assertThat(
-            "A FileConfiguration throws exception if file not found",
-            () -> new FileConfiguration("non-existing-file.properties"),
+            "A YamlConfiguration throws exception if file not found",
+            () -> {
+                try {
+                    new YamlConfiguration("non-existing-file.yml");
+                } catch (final Exception exception) {
+                    throw new RuntimeException(exception.getMessage(), exception);
+                }
+            },
             new ThrowsException(
-                IllegalArgumentException.class,
-                "Resource 'non-existing-file.properties' not found in classpath"
+                RuntimeException.class,
+                new StringContains("The resource \"non-existing-file.yml\" was not found")
             )
         );
     }
