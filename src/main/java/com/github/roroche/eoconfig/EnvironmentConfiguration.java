@@ -30,6 +30,15 @@ import org.cactoos.list.ListOf;
 /**
  * A utility class for creating configurations from environment variables.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Load configuration from a properties file in the classpath
+ * Configuration config = new EnvironmentConfiguration("APP_NAME", "APP_VERSION");
+ *
+ * // Use the loaded configuration
+ * Properties props = config.properties();
+ * String appName = props.getProperty("APP_NAME");
+ * }</pre>
  * @since 0.0.1
  */
 public final class EnvironmentConfiguration extends ConfigurationEnvelope {
