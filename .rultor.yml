@@ -17,6 +17,5 @@ release:
   script: |-
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
     mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
-    npm version "${tag}" --no-git-tag-version
     git commit -am ":bookmark: ${tag}"
     mvn -B -P release clean deploy
