@@ -17,6 +17,7 @@
     <qulice.version>0.25.1</qulice.version>
     <junit.version>5.10.2</junit.version>
     <hamcrest.version>3.0</hamcrest.version>
+    <system-stubs-jupiter.version>2.1.8</system-stubs-jupiter.version>
     <jacoco.version>0.8.14</jacoco.version>
     <youshallnotpass.version>0.6.0</youshallnotpass.version>
     <jtcop.version>1.4.3</jtcop.version>
@@ -47,6 +48,18 @@
       <groupId>org.hamcrest</groupId>
       <artifactId>hamcrest</artifactId>
       <version>${hamcrest.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>uk.org.webcompere</groupId>
+      <artifactId>system-stubs-core</artifactId>
+      <version>${system-stubs-jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>uk.org.webcompere</groupId>
+      <artifactId>system-stubs-jupiter</artifactId>
+      <version>${system-stubs-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
