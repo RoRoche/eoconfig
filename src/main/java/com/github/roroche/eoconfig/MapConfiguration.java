@@ -23,11 +23,79 @@
  */
 package com.github.roroche.eoconfig;
 
+import java.util.Map;
+import java.util.Properties;
+import org.cactoos.map.MapOf;
+
 /**
  * A utility class for creating configurations from {@link java.util.Map}.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Load configuration from map entries
+ * Configuration config = new MapConfiguration(
+ *     new MapEntry<>("key.test", "value.test"),
+ *     new MapEntry<>("app.name", "MyApp")
+ * );
+ *
+ * // Or from a map
+ * Map<String, String> configMap = new HashMap<>();
+ * configMap.put("db.host", "localhost");
+ * configMap.put("db.port", "5432");
+ * Configuration config = new MapConfiguration(configMap);
+ *
+ * Properties props = config.properties();
+ * }</pre>
+ *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to create configurations from Map
  */
-public final class MapConfiguration {
+public final class MapConfiguration extends ConfigurationEnvelope {
+    /**
+     * Primary constructor.
+     *
+     * @param origin The configuration to decorate
+     */
+    public MapConfiguration(final Configuration origin) {
+        super(origin);
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param props The properties to load.
+     */
+    public MapConfiguration(final Properties props) {
+        this(new ConfigurationOf(props));
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param map The map of string keys and values to load.
+     */
+    public MapConfiguration(final Map<String, String> map) {
+        this(
+            map.entrySet()
+                .stream()
+                .collect(
+                    Properties::new,
+                    (final Properties props, final Map.Entry<String, String> entry) ->
+                        props.setProperty(
+                            entry.getKey(),
+                            entry.getValue()
+                        ),
+                    Properties::putAll
+                )
+        );
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param entries The entries of the map of string keys and values to load.
+     */
+    @SafeVarargs
+    public MapConfiguration(final Map.Entry<String, String>... entries) {
+        this(new MapOf<>(entries));
+    }
 }
