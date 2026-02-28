@@ -23,11 +23,56 @@
  */
 package com.github.roroche.eoconfig;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * A utility class for creating configurations from {@link java.io.File}.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Load configuration from a properties file in the classpath
+ * Configuration config = new FileConfiguration("application-test.properties");
+ *
+ * // Use the loaded configuration
+ * Properties props = config.properties();
+ * String appName = props.getProperty("app.name");
+ * }</pre>
+ *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to create configurations from File
  */
-public final class FileConfiguration {
+public final class FileConfiguration extends ConfigurationEnvelope {
+    /**
+     * Primary constructor.
+     *
+     * @param origin The configuration to decorate
+     */
+    public FileConfiguration(final Configuration origin) {
+        super(origin);
+    }
+
+    /**
+     * Secondary constructor that loads properties from a file in the classpath.
+     *
+     * @param name The name of the properties file in the classpath
+     */
+    public FileConfiguration(final String name) {
+        this(
+            new ConfigurationOf(
+                () -> {
+                    final Properties props = new Properties();
+                    try (InputStream stream = Thread.currentThread()
+                        .getContextClassLoader().getResourceAsStream(name)) {
+                        if (stream == null) {
+                            throw new IllegalArgumentException(
+                                String.format("Resource '%s' not found in classpath", name)
+                            );
+                        }
+                        props.load(stream);
+                    }
+                    return props;
+                }
+            )
+        );
+    }
 }
