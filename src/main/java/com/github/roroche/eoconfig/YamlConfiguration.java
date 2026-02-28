@@ -34,6 +34,16 @@ import org.cactoos.io.ResourceOf;
 /**
  * A utility class for creating configurations from YAML content.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Load configuration from a YAML file in the classpath
+ * Configuration config = new YamlConfiguration("application.yaml");
+ *
+ * // Use the loaded configuration
+ * Properties props = config.properties();
+ * String appName = props.getProperty("app.name");
+ * }</pre>
+ *
  * @since 0.0.1
  */
 public final class YamlConfiguration extends ConfigurationEnvelope {

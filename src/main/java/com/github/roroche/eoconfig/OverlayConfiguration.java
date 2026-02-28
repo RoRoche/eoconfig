@@ -30,6 +30,24 @@ import org.cactoos.map.MapOf;
 /**
  * A utility class for override a configuration.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Create a base configuration and override specific values
+ * Configuration baseConfig = new MapConfiguration(
+ *     new MapEntry<>("key.test", "original.value"),
+ *     new MapEntry<>("other.key", "other.value")
+ * );
+ *
+ * Configuration overriddenConfig = new OverlayConfiguration(
+ *     baseConfig,
+ *     new MapEntry<>("key.test", "overridden.value")
+ * );
+ *
+ * Properties props = overriddenConfig.properties();
+ * String value = props.getProperty("key.test"); // Returns "overridden.value"
+ * String other = props.getProperty("other.key"); // Returns "other.value"
+ * }</pre>
+ *
  * @since 0.0.1
  */
 public final class OverlayConfiguration extends ConfigurationEnvelope {
