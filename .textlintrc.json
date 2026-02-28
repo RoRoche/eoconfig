@@ -1,7 +1,9 @@
 {
     "plugins": {
         "@textlint/markdown": {
-            "extensions": [".md"]
+            "extensions": [
+                ".md"
+            ]
         }
     },
     "filters": {},
@@ -19,6 +21,7 @@
         },
         "en-max-word-count": {
             "max": 30
-        }
+        },
+        "no-start-duplicated-conjunction": true
     }
 }
