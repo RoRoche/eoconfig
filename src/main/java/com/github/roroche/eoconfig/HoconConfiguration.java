@@ -23,11 +23,76 @@
  */
 package com.github.roroche.eoconfig;
 
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+import com.typesafe.config.ConfigValue;
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * A utility class for creating configurations from HOCON content.
  *
+ * <p><b>Example:</b></p>
+ * <pre>{@code
+ * // Load configuration from a HOCON string
+ * Configuration config = new HoconConfiguration("app.name = MyApp\napp.version = 1.0");
+ *
+ * // Or load from a HOCON file
+ * Config hoconConfig = ConfigFactory.parseResources("config/application.conf").resolve();
+ * Configuration config = new HoconConfiguration(hoconConfig);
+ *
+ * Properties props = config.properties();
+ * String appName = props.getProperty("app.name");
+ * }</pre>
+ *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to create configurations from HOCON content
  */
-public final class HoconConfiguration {
+public final class HoconConfiguration extends ConfigurationEnvelope {
+    /**
+     * Primary constructor.
+     *
+     * @param origin The configuration to decorate
+     */
+    public HoconConfiguration(final Configuration origin) {
+        super(origin);
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param props The properties to load.
+     */
+    public HoconConfiguration(final Properties props) {
+        this(new ConfigurationOf(props));
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param config The HOCON configuration to load.
+     */
+    public HoconConfiguration(final Config config) {
+        this(
+            config.entrySet()
+                .stream()
+                .collect(
+                    Properties::new,
+                    (final Properties props, final Map.Entry<String, ConfigValue> entry) ->
+                        props.setProperty(
+                            entry.getKey(),
+                            String.valueOf(entry.getValue().unwrapped())
+                        ),
+                    Properties::putAll
+                )
+        );
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param content The HOCON configuration string to load.
+     */
+    public HoconConfiguration(final String content) {
+        this(ConfigFactory.parseString(content).resolve());
+    }
 }
