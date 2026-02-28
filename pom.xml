@@ -161,7 +161,7 @@
           </staticfree>
           <allfinal>
             <disabled>false</disabled>
-            <threshold>0</threshold>
+            <threshold>2</threshold>
             <skipInterfaceMethodParams>true</skipInterfaceMethodParams>
             <skipLambdaParams>false</skipLambdaParams>
             <skipCatchParams>false</skipCatchParams>
