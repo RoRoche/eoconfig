@@ -1,5 +1,5 @@
 ---
-name: Markdown Lint
+name: Node.js CI
 
 on:
   pull_request:
@@ -26,3 +26,6 @@ jobs:
 
       - name: Run markdownlint
         run: npx markdownlint "**/*.md"
+
+      - name: Textlint
+        run: npx textlint "**/*.md"
