@@ -23,11 +23,49 @@
  */
 package com.github.roroche.eoconfig;
 
+import java.util.List;
+import java.util.Properties;
+import org.cactoos.list.ListOf;
+
 /**
  * A utility class for creating configurations from environment variables.
  *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to create configurations from environment variables
  */
-public final class EnvironementConfiguration {
+public final class EnvironmentConfiguration extends ConfigurationEnvelope {
+    /**
+     * Creates a new configuration envelope.
+     *
+     * @param origin The configuration to decorate
+     */
+    public EnvironmentConfiguration(final Configuration origin) {
+        super(origin);
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param keys The list of keys to filter the environment variables.
+     */
+    public EnvironmentConfiguration(final List<String> keys) {
+        this(
+            () -> keys.stream()
+                .filter(System.getenv()::containsKey)
+                .collect(
+                    Properties::new,
+                    (final Properties props, final String key) ->
+                        props.setProperty(key, System.getenv().get(key)),
+                    Properties::putAll
+                )
+        );
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param keys The keys to filter the environment variables.
+     */
+    public EnvironmentConfiguration(final String... keys) {
+        this(new ListOf<>(keys));
+    }
 }
