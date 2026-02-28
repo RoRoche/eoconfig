@@ -23,11 +23,57 @@
  */
 package com.github.roroche.eoconfig;
 
+import java.util.Map;
+import java.util.Properties;
+import org.cactoos.map.MapOf;
+
 /**
  * A utility class for override a configuration.
  *
  * @since 0.0.1
- * @todo #22:15m/DEV Implement method to override configuration.
  */
-public final class OverlayConfiguration {
+public final class OverlayConfiguration extends ConfigurationEnvelope {
+    /**
+     * Primary ctor.
+     *
+     * @param base The configuration to wrap.
+     * @param override The configuration providing the properties
+     *  to override the base configuration.
+     */
+    public OverlayConfiguration(final Configuration base, final Configuration override) {
+        super(
+            () -> {
+                final Properties props = new Properties();
+                props.putAll(base.properties());
+                props.putAll(override.properties());
+                return props;
+            }
+        );
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param base The configuration to wrap.
+     * @param map The map of string keys and values providing the properties
+     *  to override the base configuration.
+     */
+    public OverlayConfiguration(final Configuration base, final Map<String, String> map) {
+        this(base, new MapConfiguration(map));
+    }
+
+    /**
+     * Secondary ctor.
+     *
+     * @param base The configuration to wrap.
+     * @param entries The entries of the map of string keys and values
+     *  providing the properties to override the base configuration.
+     */
+    @SafeVarargs
+    public OverlayConfiguration(
+        final Configuration base,
+        final Map.Entry<String, String>... entries
+    ) {
+        this(base, new MapOf<>(entries));
+    }
 }
