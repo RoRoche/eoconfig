@@ -29,6 +29,24 @@ import org.cactoos.Scalar;
 /**
  * A utility class for creating configurations from {@link java.util.Properties}.
  *
+ * <p><b>Example:</b>
+ *
+ * <pre>{@code
+ * // Load configuration from properties
+ * Configuration config = new ConfigurationOf(
+ *                 () -> {
+ *                     final Properties props = new Properties();
+ *                     props.setProperty("key1", "value1");
+ *                     props.setProperty("key2", "value2");
+ *                     return props;
+ *                 }
+ *             );
+ *
+ * // Use the loaded configuration
+ * Properties props = config.properties();
+ * String appName = props.getProperty("key1")); // "value1"
+ * }</pre>
+ *
  * @since 0.0.1
  */
 public final class ConfigurationOf implements Configuration {
