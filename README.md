@@ -12,7 +12,7 @@ Elegant Objects library to deal with Java Properties.
 
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eoconfig)](https://www.0pdd.com/p?name=RoRoche/eoconfig)
 
-[![codecov](https://app.codecov.io/gh/RoRoche/eoconfig/branch/main/graph/badge.svg)](https://app.codecov.io/gh/RoRoche/eoconfig)
+[![codecov](https://codecov.io/gh/RoRoche/eoconfig/branch/main/graph/badge.svg)](https://codecov.io/gh/RoRoche/eoconfig)
 
 [![Hits-of-Code](https://hitsofcode.com/github/RoRoche/eoconfig?branch=main)](https://hitsofcode.com/github/RoRoche/eoconfig/view?branch=main)
 
