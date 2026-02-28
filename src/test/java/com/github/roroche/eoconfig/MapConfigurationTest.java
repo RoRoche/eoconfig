@@ -27,29 +27,25 @@ import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
 import java.util.Properties;
+import org.cactoos.map.MapEntry;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
-import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link ConfigurationOf}.
+ * Test case for {@link MapConfiguration}.
  *
  * @since 0.0.1
  */
-final class ConfigurationOfTest {
+final class MapConfigurationTest {
     @Test
     void isOk() {
         MatcherAssert.assertThat(
-            "A ConfigurationOf can be created from Properties",
-            new ConfigurationOf(
-                () -> {
-                    final Properties props = new Properties();
-                    props.setProperty("key1", "value1");
-                    props.setProperty("key2", "value2");
-                    return props;
-                }
+            "A MapConfiguration can be created from Map.Entry",
+            new MapConfiguration(
+                new MapEntry<>("key1", "value1"),
+                new MapEntry<>("key2", "value2")
             ),
             new HasConfiguration(
                 new AllOf<>(
@@ -64,21 +60,10 @@ final class ConfigurationOfTest {
     @Test
     void isEmpty() {
         MatcherAssert.assertThat(
-            "A ConfigurationOf can be created from empty Properties",
-            new ConfigurationOf(Properties::new),
+            "A MapConfiguration can be created from empty Properties",
+            new MapConfiguration(Properties::new),
             new HasConfiguration(
                 new IsEmptyProperties()
-            )
-        );
-    }
-
-    @Test
-    void isNull() {
-        MatcherAssert.assertThat(
-            "A ConfigurationOf can be created from null Properties",
-            new ConfigurationOf(() -> null),
-            new HasConfiguration(
-                new IsNull<>()
             )
         );
     }
