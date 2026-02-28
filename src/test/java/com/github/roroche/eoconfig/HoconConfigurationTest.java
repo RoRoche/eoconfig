@@ -26,29 +26,38 @@ package com.github.roroche.eoconfig;
 import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
-import com.github.roroche.eoconfig.matchers.ThrowsException;
+import com.typesafe.config.ConfigFactory;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.AllOf;
-import org.hamcrest.core.IsNot;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link FileConfiguration}.
+ * Test case for {@link HoconConfiguration}.
  *
  * @since 0.0.1
  */
-final class FileConfigurationTest {
+final class HoconConfigurationTest {
     @Test
-    void isOk() {
+    void isFromHoconFromStringOk() {
         MatcherAssert.assertThat(
-            "A FileConfiguration can be created from Map.Entry",
-            new FileConfiguration("application-test.properties"),
+            "A Configuration from Hocon string contains value for key",
+            new HoconConfiguration(
+                "key.test = value.test"
+            ),
             new HasConfiguration(
-                new AllOf<>(
-                    new IsNot<>(new IsEmptyProperties()),
-                    new HasProperty("app.name", "TestApp"),
-                    new HasProperty("app.version", "2.0.0")
-                )
+                new HasProperty("key.test", "value.test")
+            )
+        );
+    }
+
+    @Test
+    void isFromHoconFromFileOk() {
+        MatcherAssert.assertThat(
+            "A Configuration from Hocon file contains value for key",
+            new HoconConfiguration(
+                ConfigFactory.parseResources("config/application-test.conf").resolve()
+            ),
+            new HasConfiguration(
+                new HasProperty("app.kafka.application-id", "test-app")
             )
         );
     }
@@ -56,8 +65,10 @@ final class FileConfigurationTest {
     @Test
     void isEmpty() {
         MatcherAssert.assertThat(
-            "A FileConfiguration can be created from empty Properties",
-            new FileConfiguration("empty.properties"),
+            "A HoconConfiguration can be created from empty Properties",
+            new HoconConfiguration(
+                ConfigFactory.parseResources("config/empty-application-test.conf").resolve()
+            ),
             new HasConfiguration(
                 new IsEmptyProperties()
             )
@@ -67,11 +78,12 @@ final class FileConfigurationTest {
     @Test
     void doesNotExist() {
         MatcherAssert.assertThat(
-            "A FileConfiguration throws exception if file not found",
-            () -> new FileConfiguration("non-existing-file.properties"),
-            new ThrowsException(
-                IllegalArgumentException.class,
-                "Resource 'non-existing-file.properties' not found in classpath"
+            "A HoconConfiguration throws exception if file not found",
+            new HoconConfiguration(
+                ConfigFactory.parseResources("config/non-existing-file.conf").resolve()
+            ),
+            new HasConfiguration(
+                new IsEmptyProperties()
             )
         );
     }
