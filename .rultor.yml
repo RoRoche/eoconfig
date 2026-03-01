@@ -19,7 +19,6 @@ release:
   script: |-
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
     mkdir -p ~/.ssh
-    cp /home/r/settings.xml ./settings.xml
     gpg --import /home/r/pubring.gpg
     gpg --allow-secret-key-import --no-tty --batch --import /home/r/secring.gpg
     echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
@@ -27,4 +26,4 @@ release:
     gpgconf --kill gpg-agent
     mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
     git commit -am ":bookmark: ${tag}"
-    mvn -B -P release --settings settings.xml clean deploy
+    mvn -B -P release --settings ../settings.xml clean deploy
