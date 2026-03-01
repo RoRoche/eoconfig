@@ -45,7 +45,7 @@ import org.cactoos.scalar.Unchecked;
  *
  * // Use the loaded configuration
  * Properties props = config.properties();
- * String appName = props.getProperty("key1")); // "value1"
+ * String appName = props.getProperty("key1"); // "value1"
  * }</pre>
  *
  * @since 0.0.1
