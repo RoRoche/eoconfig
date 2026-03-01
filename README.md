@@ -54,7 +54,7 @@ Add the dependency to your project:
 ## 🚀 Usage
 
 - `Configuration` is the main interface for accessing configuration values.
-- `ConfigurationOf` is for creating `Configuration` instances from `Properties`:
+- `ConfigurationOf` is for creating `Configuration` instances from `Properties`.
 - `EnvironmentConfiguration` reads configuration from environment variables.
 - `FileConfiguration` reads configuration from a file.
 - `HoconConfiguration` reads configuration from a HOCON file.
