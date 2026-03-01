@@ -26,6 +26,6 @@ release:
     gpgconf --kill gpg-agent
     mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
     git commit -am ":bookmark: ${tag}"
-    mvn -B -P release,ossrh --settings settings.xml clean deploy
+    mvn -B -P release --settings settings.xml clean deploy
     git tag -a "${tag}" -m "Release ${tag}"
     git push origin "${tag}"
