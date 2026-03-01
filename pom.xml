@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.roroche</groupId>
   <artifactId>eoconfig</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
   <name>eoconfig</name>
   <description>Elegant Objects library to deal with Java Properties</description>
