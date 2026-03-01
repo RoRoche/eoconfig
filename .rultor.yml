@@ -19,8 +19,8 @@ release:
   script: |-
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
     cp /home/r/settings.xml ./settings.xml
-    gpg --import /home/r/secring.gpg
     gpg --import /home/r/pubring.gpg
+    gpg --allow-secret-key-import --no-tty --batch --import /home/r/secring.gpg
     echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
     echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
     gpgconf --kill gpg-agent
