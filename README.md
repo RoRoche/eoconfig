@@ -53,14 +53,14 @@ Add the dependency to your project:
 
 ## 🚀 Usage
 
-- `Configuration` is the main interface for accessing configuration values.
-- `ConfigurationOf` is for creating `Configuration` instances from `Properties`.
-- `EnvironmentConfiguration` reads configuration from environment variables.
-- `FileConfiguration` reads configuration from a file.
-- `HoconConfiguration` reads configuration from a HOCON file.
-- `MapConfiguration` reads configuration from a `Map`.
-- `OverlayConfiguration` composes two `Configuration` instances, giving precedence to the first one.
-- `YamlConfiguration` reads configuration from a YAML file.
+- [`Configuration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/Configuration.html) is the main interface for accessing configuration values.
+- [`ConfigurationOf`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/ConfigurationOf.html) is for creating `Configuration` instances from `Properties`.
+- [`EnvironmentConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/EnvironmentConfiguration.html) reads configuration from environment variables.
+- [`FileConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/FileConfiguration.html) reads configuration from a file.
+- [`HoconConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/HoconConfiguration.html) reads configuration from a HOCON file.
+- [`MapConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/EnvironmentConfiguration.html) reads configuration from a `Map`.
+- [`OverlayConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/OverlayConfiguration.html) composes two `Configuration` instances, giving precedence to the first one.
+- [`YamlConfiguration`](https://javadoc.io/doc/com.github.roroche/eoconfig/latest/com/github/roroche/eoconfig/YamlConfiguration.html) reads configuration from a YAML file.
 
 ## 🤝 Contributing
 
