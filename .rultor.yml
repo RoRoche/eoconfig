@@ -1,28 +1,25 @@
 ---
 docker:
   image: yegor256/java
-
+assets:
+  settings.xml: roroche/home#assets/eoconfig/settings.xml
+  pubring.gpg: roroche/home#assets/pubring.gpg
+  secring.gpg: roroche/home#assets/secring.gpg
 architect: RoRoche
-
 install: |
   mvn -version
-
 merge:
   script:
     - mvn clean install -DskipTests
   squash: false
   rebase: true
-
 release:
+  sensitive:
+    - settings.xml
   script: |-
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
     mvn versions:set "-DnewVersion=${tag}" -Dstyle.color=never
     git commit -am ":bookmark: ${tag}"
-    echo "$GPG_PRIVATE_KEY" | tr '\\n' '\n' | gpg --batch --import
-    echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
-    echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
-    gpgconf --kill gpg-agent
-    gpg --list-secret-keys
-    mvn -B -P release clean deploy
+    mvn -B -P release,ossrh --settings settings.xml clean deploy
     git tag -a "${tag}" -m "Release ${tag}"
     git push origin "${tag}"
