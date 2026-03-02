@@ -30,6 +30,7 @@ import com.github.roroche.eoconfig.matchers.ThrowsException;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
+import org.hamcrest.core.StringContains;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -72,6 +73,18 @@ final class FileConfigurationTest {
             new ThrowsException(
                 IllegalArgumentException.class,
                 "Resource 'non-existing-file.properties' not found in classpath"
+            )
+        );
+    }
+
+    @Test
+    void throwsIfContentIsInvalid() {
+        MatcherAssert.assertThat(
+            "A FileConfiguration throws exception if file is invalid",
+            () -> new FileConfiguration("invalid-application-test.properties"),
+            new ThrowsException(
+                IllegalArgumentException.class,
+                new StringContains("Malformed \\uxxxx encoding.")
             )
         );
     }

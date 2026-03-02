@@ -26,8 +26,11 @@ package com.github.roroche.eoconfig;
 import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
+import com.github.roroche.eoconfig.matchers.ThrowsException;
+import com.typesafe.config.ConfigException;
 import com.typesafe.config.ConfigFactory;
 import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.StringContains;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -84,6 +87,20 @@ final class HoconConfigurationTest {
             ),
             new HasConfiguration(
                 new IsEmptyProperties()
+            )
+        );
+    }
+
+    @Test
+    void throwsWhenContentIsInvalid() {
+        MatcherAssert.assertThat(
+            "A HoconConfiguration throws exception if content is invalid",
+            () -> new HoconConfiguration(
+                ConfigFactory.parseResources("config/invalid-application-test.conf").resolve()
+            ),
+            new ThrowsException(
+                ConfigException.class,
+                new StringContains("expecting a close parentheses ')' here, not: end of file")
             )
         );
     }
