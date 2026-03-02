@@ -52,7 +52,7 @@
     <maven.javadoc.plugin.version>3.6.3</maven.javadoc.plugin.version>
     <nexus.staging.maven.plugin.version>1.7.0</nexus.staging.maven.plugin.version>
     <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
-    <central-publishing-maven-plugin.version>0.5.0</central-publishing-maven-plugin.version>
+    <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
   </properties>
   <dependencies>
     <dependency>
