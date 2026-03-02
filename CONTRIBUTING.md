@@ -10,7 +10,8 @@ We love contributions from the community. By participating, you agree to follow 
 3. Commit Guidelines
 4. Code Quality
 5. Reporting Issues
-6. References
+6. Puzzle-driven development
+7. References
 
 ## Getting Started
 
@@ -100,6 +101,22 @@ When reporting a bug or suggesting a feature, please:
 - Provide a clear title and description.
 - Include steps to reproduce (if applicable).
 - Reference related Pull Requests or commits if needed.
+
+## Puzzle-Driven Development (PDD)
+
+We follow the Puzzle-Driven Development (PDD) approach as described by Yegor Bugayenko and the CQFN community.
+
+- 📖 [Concept article](https://www.yegor256.com/2010/03/04/pdd.html)
+- 📐 [Formatting rules](https://github.com/cqfn/pdd#how-to-format)
+
+### What is PDD?
+
+Puzzle-Driven Development means that:
+
+- All non-trivial work must start with a GitHub issue.
+- Each issue represents a puzzle to solve.
+- The Pull Request must reference one issue.
+- Closing the PR automatically closes the issue.
 
 ## References
 
