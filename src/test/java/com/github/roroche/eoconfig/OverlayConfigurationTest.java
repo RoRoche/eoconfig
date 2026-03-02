@@ -29,6 +29,8 @@ import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
 import java.util.Properties;
 import org.cactoos.map.MapEntry;
 import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.IsNot;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -43,12 +45,17 @@ final class OverlayConfigurationTest {
             "A Configuration overridden contains new value for key",
             new OverlayConfiguration(
                 new MapConfiguration(
-                    new MapEntry<>("key.test", "value.test1")
+                    new MapEntry<>("key.test1", "value.test1"),
+                    new MapEntry<>("key.test2", "value.test2")
                 ),
-                new MapEntry<>("key.test", "value.test2")
+                new MapEntry<>("key.test1", "value.test2")
             ),
             new HasConfiguration(
-                new HasProperty("key.test", "value.test2")
+                new AllOf<>(
+                    new IsNot<>(new IsEmptyProperties()),
+                    new HasProperty("key.test1", "value.test2"),
+                    new HasProperty("key.test2", "value.test2")
+                )
             )
         );
     }
