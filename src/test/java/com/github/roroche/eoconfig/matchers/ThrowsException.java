@@ -27,6 +27,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.text.IsEqualIgnoringCase;
+import org.junit.jupiter.api.function.Executable;
 
 /**
  * A Hamcrest matcher that checks if a {@link Runnable}
@@ -48,7 +49,7 @@ import org.hamcrest.text.IsEqualIgnoringCase;
  * }</pre>
  * @since 0.0.1
  */
-public final class ThrowsException extends TypeSafeMatcher<Runnable> {
+public final class ThrowsException extends TypeSafeMatcher<Executable> {
 
     /**
      * The expected type of the exception to be thrown.
@@ -92,14 +93,14 @@ public final class ThrowsException extends TypeSafeMatcher<Runnable> {
      */
     @SuppressWarnings("PMD.AvoidCatchingGenericException")
     @Override
-    public boolean matchesSafely(final Runnable runnable) {
+    public boolean matchesSafely(final Executable executable) {
         boolean matches = false;
         try {
-            runnable.run();
-        } catch (final Exception exception) {
-            matches = this.expected.isInstance(exception)
+            executable.execute();
+        } catch (final Throwable throwable) {
+            matches = this.expected.isInstance(throwable)
                 &&
-                this.message.matches(exception.getMessage());
+                this.message.matches(throwable.getMessage());
         }
         return matches;
     }

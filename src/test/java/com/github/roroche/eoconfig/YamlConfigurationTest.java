@@ -23,10 +23,12 @@
  */
 package com.github.roroche.eoconfig;
 
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
 import com.github.roroche.eoconfig.matchers.ThrowsException;
+import java.io.UncheckedIOException;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
@@ -56,45 +58,25 @@ final class YamlConfigurationTest {
         );
     }
 
-    /*
-     * @checkstyle IllegalCatchCheck (18 lines)
-     */
-    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.AvoidThrowingRawExceptionTypes"})
     @Test
     void isEmpty() {
         MatcherAssert.assertThat(
             "A YamlConfiguration throws from empty Properties",
-            () -> {
-                try {
-                    new YamlConfiguration("empty-application-properties.yml");
-                } catch (final Exception exception) {
-                    throw new RuntimeException(exception.getMessage(), exception);
-                }
-            },
+            () -> new YamlConfiguration("empty-application-properties.yml"),
             new ThrowsException(
-                RuntimeException.class,
+                MismatchedInputException.class,
                 new StringContains("No content to map due to end-of-input")
             )
         );
     }
 
-    /*
-     * @checkstyle IllegalCatchCheck (18 lines)
-     */
-    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.AvoidThrowingRawExceptionTypes"})
     @Test
     void doesNotExist() {
         MatcherAssert.assertThat(
             "A YamlConfiguration throws exception if file not found",
-            () -> {
-                try {
-                    new YamlConfiguration("non-existing-file.yml");
-                } catch (final Exception exception) {
-                    throw new RuntimeException(exception.getMessage(), exception);
-                }
-            },
+            () -> new YamlConfiguration("non-existing-file.yml"),
             new ThrowsException(
-                RuntimeException.class,
+                UncheckedIOException.class,
                 new StringContains("The resource \"non-existing-file.yml\" was not found")
             )
         );
