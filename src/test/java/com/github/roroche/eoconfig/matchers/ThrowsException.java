@@ -25,7 +25,8 @@ package com.github.roroche.eoconfig.matchers;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.StringDescription;
+import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.hamcrest.text.IsEqualIgnoringCase;
 import org.junit.jupiter.api.function.Executable;
 
@@ -49,7 +50,7 @@ import org.junit.jupiter.api.function.Executable;
  * }</pre>
  * @since 0.0.1
  */
-public final class ThrowsException extends TypeSafeMatcher<Executable> {
+public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable> {
 
     /**
      * The expected type of the exception to be thrown.
@@ -89,27 +90,47 @@ public final class ThrowsException extends TypeSafeMatcher<Executable> {
     }
 
     /*
-     * @checkstyle IllegalCatchCheck (13 lines)
+     * @checkstyle IllegalCatchCheck (33 lines)
      */
-    @SuppressWarnings("PMD.AvoidCatchingGenericException")
+    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.ConfusingTernary"})
     @Override
-    public boolean matchesSafely(final Executable executable) {
-        boolean matches = false;
+    public boolean matchesSafely(
+        final Executable executable,
+        final Description mismatch
+    ) {
+        boolean matches = true;
+        final Description buffer = new StringDescription();
         try {
             executable.execute();
+            buffer.appendText("no exception was thrown");
+            matches = false;
         } catch (final Throwable throwable) {
-            matches = this.expected.isInstance(throwable)
-                &&
-                this.message.matches(throwable.getMessage());
+            if (!this.expected.isInstance(throwable)) {
+                buffer.appendText("threw ")
+                    .appendValue(throwable.getClass().getName())
+                    .appendText(" instead of ")
+                    .appendValue(this.expected.getName());
+                matches = false;
+            } else {
+                final String actual = throwable.getMessage();
+                if (!this.message.matches(actual)) {
+                    buffer.appendText("exception message ");
+                    this.message.describeMismatch(actual, buffer);
+                    matches = false;
+                }
+            }
+        }
+        if (!matches) {
+            mismatch.appendText(buffer.toString());
         }
         return matches;
     }
 
     @Override
     public void describeTo(final Description description) {
-        description.appendText("throws exception ")
-            .appendValue(this.expected)
+        description.appendText("throws ")
+            .appendValue(this.expected.getName())
             .appendText(" with message ")
-            .appendValue(this.message);
+            .appendDescriptionOf(this.message);
     }
 }
