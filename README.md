@@ -41,7 +41,7 @@ Lightweight, immutable and composable configuration library for Java.
 ## ✨ Features
 
 - Immutable configuration objects
-- Fluent API
+- Clear API
 - Type-safe accessors
 - Composable configuration sources
 - Easy unit testing
