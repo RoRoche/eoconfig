@@ -208,9 +208,9 @@
         <artifactId>youshallnotpass-maven-plugin</artifactId>
         <version>${youshallnotpass.version}</version>
         <configuration>
-          <offline>true</offline>
+          <offline>false</offline>
           <nullfree>
-            <disabled>true</disabled>
+            <disabled>false</disabled>
             <threshold>0</threshold>
             <skipComparisons>false</skipComparisons>
           </nullfree>
@@ -220,13 +220,13 @@
           </staticfree>
           <allfinal>
             <disabled>false</disabled>
-            <threshold>2</threshold>
+            <threshold>0</threshold>
             <skipInterfaceMethodParams>true</skipInterfaceMethodParams>
             <skipLambdaParams>false</skipLambdaParams>
             <skipCatchParams>false</skipCatchParams>
           </allfinal>
           <allpublic>
-            <disabled>true</disabled>
+            <disabled>false</disabled>
             <threshold>0</threshold>
           </allpublic>
           <setterfree>
