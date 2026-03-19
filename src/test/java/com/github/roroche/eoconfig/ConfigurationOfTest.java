@@ -38,6 +38,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.0.1
  */
+@SuppressWarnings("allpublic")
 final class ConfigurationOfTest {
     @Test
     void isOk() {
@@ -72,6 +73,7 @@ final class ConfigurationOfTest {
         );
     }
 
+    @SuppressWarnings("nullfree")
     @Test
     void isNull() {
         MatcherAssert.assertThat(

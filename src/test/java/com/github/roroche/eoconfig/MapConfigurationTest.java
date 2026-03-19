@@ -38,6 +38,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 0.0.1
  */
+@SuppressWarnings("allpublic")
 final class MapConfigurationTest {
     @Test
     void isOk() {

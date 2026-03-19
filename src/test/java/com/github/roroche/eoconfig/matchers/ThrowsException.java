@@ -92,7 +92,7 @@ public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable>
     /*
      * @checkstyle IllegalCatchCheck (33 lines)
      */
-    @SuppressWarnings({"PMD.AvoidCatchingGenericException", "PMD.ConfusingTernary"})
+    @SuppressWarnings({"allfinal", "PMD.AvoidCatchingGenericException", "PMD.ConfusingTernary"})
     @Override
     public boolean matchesSafely(
         final Executable executable,

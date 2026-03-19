@@ -56,6 +56,7 @@ public final class FileConfiguration extends ConfigurationEnvelope {
      *
      * @param name The name of the properties file in the classpath
      */
+    @SuppressWarnings({"allfinal", "nullfree"})
     public FileConfiguration(final String name) {
         this(
             new ConfigurationOf(
