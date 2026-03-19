@@ -28,6 +28,13 @@ Lightweight, immutable and composable configuration library for Java.
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RoRoche_eoconfig&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RoRoche_eoconfig)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=RoRoche_eoconfig&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=RoRoche_eoconfig)
 
+![nullfree status](https://youshallnotpass.dev/nullfree/RoRoche/eoconfig)
+![staticfree status](https://youshallnotpass.dev/staticfree/RoRoche/eoconfig)
+![allfinal status](https://youshallnotpass.dev/allfinal/RoRoche/eoconfig)
+![allpublic status](https://youshallnotpass.dev/allpublic/RoRoche/eoconfig)
+![setterfree status](https://youshallnotpass.dev/setterfree/RoRoche/eoconfig)
+![nomultiplereturn status](https://youshallnotpass.dev/nomultiplereturn/RoRoche/eoconfig)
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.roroche/eoconfig.svg?label=Maven%20Central)](https://search.maven.org/artifact/com.github.roroche/eoconfig)
 [![Javadoc](https://javadoc.io/badge2/com.github.roroche/eoconfig/javadoc.svg)](https://javadoc.io/doc/com.github.roroche/eoconfig)
 
