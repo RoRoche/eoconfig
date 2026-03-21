@@ -36,7 +36,7 @@ public final class IsEmptyProperties extends TypeSafeMatcher<Properties> {
 
     @Override
     public boolean matchesSafely(final Properties props) {
-        return props != null && props.isEmpty();
+        return props.isEmpty();
     }
 
     @Override

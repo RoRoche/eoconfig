@@ -42,6 +42,7 @@ import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
  *
  * @since 0.0.1
  */
+@SuppressWarnings("allpublic")
 @ExtendWith(SystemStubsExtension.class)
 final class EnvironmentConfigurationTest {
 
