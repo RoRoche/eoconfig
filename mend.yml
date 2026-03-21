@@ -1,0 +1,4 @@
+failPolicy:
+  enabled: true
+  failOn:
+    severity: high
