@@ -30,7 +30,6 @@ import java.io.InputStream;
 import java.util.LinkedHashMap;
 import org.cactoos.Input;
 import org.cactoos.io.ResourceOf;
-import org.cactoos.scalar.Unchecked;
 
 /**
  * A utility class for creating configurations from YAML content.
@@ -48,18 +47,9 @@ import org.cactoos.scalar.Unchecked;
  * @since 0.0.1
  */
 public final class YamlConfiguration extends ConfigurationEnvelope {
-    /**
-     * Primary constructor.
-     *
-     * @param origin The configuration to decorate
-     */
-    public YamlConfiguration(final Configuration origin) {
-        super(origin);
-    }
 
     /**
      * Secondary constructor that loads properties from a YAML input stream.
-     *
      * @param mapper The ObjectMapper to use for parsing the YAML content
      * @param input The InputStream containing the YAML content
      * @throws IOException if the input cannot be loaded or parsed
@@ -82,25 +72,31 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary constructor that loads properties from a YAML input stream.
-     *
      * @param mapper The ObjectMapper to use for parsing the YAML content
      * @param input The Input stream containing the YAML content
-     * @throws IOException if the resource cannot be loaded or parsed
+     * @throws Exception if the resource cannot be loaded or parsed
      */
-    public YamlConfiguration(final ObjectMapper mapper, final Input input) throws IOException {
-        this(mapper, new Unchecked<>(input::stream).value());
+    public YamlConfiguration(final ObjectMapper mapper, final Input input) throws Exception {
+        this(mapper, input.stream());
     }
 
     /**
      * Secondary constructor that loads properties from a YAML file in the classpath.
-     *
      * @param resource The name of the YAML file in the classpath
-     * @throws IOException if the resource cannot be loaded or parsed
+     * @throws Exception if the resource cannot be loaded or parsed
      */
-    public YamlConfiguration(final String resource) throws IOException {
+    public YamlConfiguration(final String resource) throws Exception {
         this(
             new ObjectMapper(new YAMLFactory()),
             new ResourceOf(resource)
         );
+    }
+
+    /**
+     * Primary constructor.
+     * @param origin The configuration to decorate
+     */
+    public YamlConfiguration(final Configuration origin) {
+        super(origin);
     }
 }

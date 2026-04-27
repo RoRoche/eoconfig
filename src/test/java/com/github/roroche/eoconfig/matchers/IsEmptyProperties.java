@@ -29,7 +29,6 @@ import org.hamcrest.TypeSafeMatcher;
 
 /**
  * A matcher for {@link Properties} that checks if they are empty.
- *
  * @since 0.0.1
  */
 public final class IsEmptyProperties extends TypeSafeMatcher<Properties> {

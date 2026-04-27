@@ -27,10 +27,10 @@ import java.util.Properties;
 
 /**
  * A utility class for creating configurations from {@link java.util.Properties}.
- *
  * @since 0.0.1
  */
 public abstract class ConfigurationEnvelope implements Configuration {
+
     /**
      * The configuration to decorate.
      */
@@ -38,7 +38,6 @@ public abstract class ConfigurationEnvelope implements Configuration {
 
     /**
      * Creates a new configuration envelope.
-     *
      * @param origin The configuration to decorate
      */
     protected ConfigurationEnvelope(final Configuration origin) {

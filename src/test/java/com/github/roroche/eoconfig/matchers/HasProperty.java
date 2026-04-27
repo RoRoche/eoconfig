@@ -61,6 +61,7 @@ import org.hamcrest.text.IsEqualIgnoringCase;
  *     )
  * );
  * }</pre>
+ *
  * @since 0.0.1
  */
 public final class HasProperty extends TypeSafeMatcher<Properties> {
@@ -76,24 +77,22 @@ public final class HasProperty extends TypeSafeMatcher<Properties> {
     private final Matcher<String> expected;
 
     /**
+     * Constructs a HasProperty matcher with the given key and expected value.
+     * @param key      The key of the property to check
+     * @param expected The expected value of the property
+     */
+    public HasProperty(final String key, final String expected) {
+        this(key, new IsEqualIgnoringCase(expected));
+    }
+
+    /**
      * Constructs a HasProperty matcher with the given key and expected value matcher.
-     *
      * @param key      The key of the property to check
      * @param expected The matcher for the value of the property
      */
     public HasProperty(final String key, final Matcher<String> expected) {
         this.key = key;
         this.expected = expected;
-    }
-
-    /**
-     * Constructs a HasProperty matcher with the given key and expected value.
-     *
-     * @param key      The key of the property to check
-     * @param expected The expected value of the property
-     */
-    public HasProperty(final String key, final String expected) {
-        this(key, new IsEqualIgnoringCase(expected));
     }
 
     @Override

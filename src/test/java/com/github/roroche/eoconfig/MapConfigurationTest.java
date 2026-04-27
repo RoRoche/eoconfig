@@ -35,11 +35,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link MapConfiguration}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class MapConfigurationTest {
+
     @Test
     void isOk() {
         MatcherAssert.assertThat(

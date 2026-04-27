@@ -42,18 +42,9 @@ import java.util.Properties;
  * @since 0.0.1
  */
 public final class FileConfiguration extends ConfigurationEnvelope {
-    /**
-     * Primary constructor.
-     *
-     * @param origin The configuration to decorate
-     */
-    public FileConfiguration(final Configuration origin) {
-        super(origin);
-    }
 
     /**
      * Secondary constructor that loads properties from a file in the classpath.
-     *
      * @param name The name of the properties file in the classpath
      */
     @SuppressWarnings({"allfinal", "nullfree"})
@@ -62,8 +53,12 @@ public final class FileConfiguration extends ConfigurationEnvelope {
             new ConfigurationOf(
                 () -> {
                     final Properties props = new Properties();
-                    try (InputStream stream = Thread.currentThread()
-                        .getContextClassLoader().getResourceAsStream(name)) {
+                    try (
+                        InputStream stream = Thread.currentThread()
+                            .getContextClassLoader().getResourceAsStream(
+                                name
+                            )
+                    ) {
                         if (stream == null) {
                             throw new IllegalArgumentException(
                                 String.format("Resource '%s' not found in classpath", name)
@@ -75,5 +70,13 @@ public final class FileConfiguration extends ConfigurationEnvelope {
                 }
             )
         );
+    }
+
+    /**
+     * Primary constructor.
+     * @param origin The configuration to decorate
+     */
+    public FileConfiguration(final Configuration origin) {
+        super(origin);
     }
 }

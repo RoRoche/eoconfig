@@ -48,6 +48,7 @@ import org.junit.jupiter.api.function.Executable;
  *     new IsNot<>(new ThrowsException(NullPointerException.class, "Null pointer"))
  * );
  * }</pre>
+ *
  * @since 0.0.1
  */
 public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable> {
@@ -63,8 +64,19 @@ public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable>
     private final Matcher<String> message;
 
     /**
+     * Secondary constructor that uses a case-insensitive string matcher for the message.
+     * @param expected The expected type of the exception to be thrown
+     * @param message The expected message of the exception to be thrown
+     */
+    public ThrowsException(
+        final Class<? extends Throwable> expected,
+        final String message
+    ) {
+        this(expected, new IsEqualIgnoringCase(message));
+    }
+
+    /**
      * Primary constructor.
-     *
      * @param expected The expected type of the exception to be thrown
      * @param message The expected message of the exception to be thrown
      */
@@ -74,19 +86,6 @@ public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable>
     ) {
         this.expected = expected;
         this.message = message;
-    }
-
-    /**
-     * Secondary constructor that uses a case-insensitive string matcher for the message.
-     *
-     * @param expected The expected type of the exception to be thrown
-     * @param message The expected message of the exception to be thrown
-     */
-    public ThrowsException(
-        final Class<? extends Throwable> expected,
-        final String message
-    ) {
-        this(expected, new IsEqualIgnoringCase(message));
     }
 
     /*

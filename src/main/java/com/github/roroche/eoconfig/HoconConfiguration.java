@@ -48,19 +48,10 @@ import java.util.Properties;
  * @since 0.0.1
  */
 public final class HoconConfiguration extends ConfigurationEnvelope {
-    /**
-     * Primary constructor.
-     *
-     * @param origin The configuration to decorate
-     */
-    public HoconConfiguration(final Configuration origin) {
-        super(origin);
-    }
 
     /**
      * Secondary ctor.
-     *
-     * @param props The properties to load.
+     * @param props The properties to load
      */
     public HoconConfiguration(final Properties props) {
         this(new ConfigurationOf(props));
@@ -68,31 +59,35 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
-     *
-     * @param config The HOCON configuration to load.
+     * @param config The HOCON configuration to load
      */
     public HoconConfiguration(final Config config) {
         this(
-            config.entrySet()
-                .stream()
-                .collect(
-                    Properties::new,
-                    (final Properties props, final Map.Entry<String, ConfigValue> entry) ->
-                        props.setProperty(
-                            entry.getKey(),
-                            String.valueOf(entry.getValue().unwrapped())
-                        ),
-                    Properties::putAll
-                )
+            config.entrySet().stream().collect(
+                Properties::new,
+                (final Properties props, final Map.Entry<String, ConfigValue> entry) ->
+                    props.setProperty(
+                        entry.getKey(),
+                        String.valueOf(entry.getValue().unwrapped())
+                    ),
+                Properties::putAll
+            )
         );
     }
 
     /**
      * Secondary ctor.
-     *
-     * @param content The HOCON configuration string to load.
+     * @param content The HOCON configuration string to load
      */
     public HoconConfiguration(final String content) {
         this(ConfigFactory.parseString(content).resolve());
+    }
+
+    /**
+     * Primary constructor.
+     * @param origin The configuration to decorate
+     */
+    public HoconConfiguration(final Configuration origin) {
+        super(origin);
     }
 }

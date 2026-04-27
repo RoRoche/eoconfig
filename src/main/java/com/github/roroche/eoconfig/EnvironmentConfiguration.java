@@ -39,42 +39,39 @@ import org.cactoos.list.ListOf;
  * Properties props = config.properties();
  * String appName = props.getProperty("APP_NAME");
  * }</pre>
+ *
  * @since 0.0.1
  */
 public final class EnvironmentConfiguration extends ConfigurationEnvelope {
-    /**
-     * Creates a new configuration envelope.
-     *
-     * @param origin The configuration to decorate
-     */
-    public EnvironmentConfiguration(final Configuration origin) {
-        super(origin);
-    }
 
     /**
      * Secondary ctor.
-     *
-     * @param keys The list of keys to filter the environment variables.
+     * @param keys The list of keys to filter the environment variables
      */
     public EnvironmentConfiguration(final List<String> keys) {
         this(
-            () -> keys.stream()
-                .filter(System.getenv()::containsKey)
-                .collect(
-                    Properties::new,
-                    (final Properties props, final String key) ->
-                        props.setProperty(key, System.getenv().get(key)),
-                    Properties::putAll
-                )
+            () -> keys.stream().filter(System.getenv()::containsKey).collect(
+                Properties::new,
+                (final Properties props, final String key) ->
+                    props.setProperty(key, System.getenv().get(key)),
+                Properties::putAll
+            )
         );
     }
 
     /**
      * Secondary ctor.
-     *
-     * @param keys The keys to filter the environment variables.
+     * @param keys The keys to filter the environment variables
      */
     public EnvironmentConfiguration(final String... keys) {
         this(new ListOf<>(keys));
+    }
+
+    /**
+     * Creates a new configuration envelope.
+     * @param origin The configuration to decorate
+     */
+    public EnvironmentConfiguration(final Configuration origin) {
+        super(origin);
     }
 }

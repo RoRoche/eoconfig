@@ -50,19 +50,10 @@ import org.cactoos.map.MapOf;
  * @since 0.0.1
  */
 public final class MapConfiguration extends ConfigurationEnvelope {
-    /**
-     * Primary constructor.
-     *
-     * @param origin The configuration to decorate
-     */
-    public MapConfiguration(final Configuration origin) {
-        super(origin);
-    }
 
     /**
      * Secondary ctor.
-     *
-     * @param props The properties to load.
+     * @param props The properties to load
      */
     public MapConfiguration(final Properties props) {
         this(new ConfigurationOf(props));
@@ -70,32 +61,36 @@ public final class MapConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
-     *
-     * @param map The map of string keys and values to load.
+     * @param map The map of string keys and values to load
      */
     public MapConfiguration(final Map<String, String> map) {
         this(
-            map.entrySet()
-                .stream()
-                .collect(
-                    Properties::new,
-                    (final Properties props, final Map.Entry<String, String> entry) ->
-                        props.setProperty(
-                            entry.getKey(),
-                            entry.getValue()
-                        ),
-                    Properties::putAll
-                )
+            map.entrySet().stream().collect(
+                Properties::new,
+                (final Properties props, final Map.Entry<String, String> entry) ->
+                    props.setProperty(
+                        entry.getKey(),
+                        entry.getValue()
+                    ),
+                Properties::putAll
+            )
         );
     }
 
     /**
      * Secondary ctor.
-     *
-     * @param entries The entries of the map of string keys and values to load.
+     * @param entries The entries of the map of string keys and values to load
      */
     @SafeVarargs
     public MapConfiguration(final Map.Entry<String, String>... entries) {
         this(new MapOf<>(entries));
+    }
+
+    /**
+     * Primary constructor.
+     * @param origin The configuration to decorate
+     */
+    public MapConfiguration(final Configuration origin) {
+        super(origin);
     }
 }

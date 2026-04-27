@@ -39,7 +39,6 @@ import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 /**
  * Test case for {@link EnvironmentConfiguration}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")

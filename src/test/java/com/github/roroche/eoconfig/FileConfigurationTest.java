@@ -35,11 +35,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link FileConfiguration}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class FileConfigurationTest {
+
     @Test
     void isOk() {
         MatcherAssert.assertThat(

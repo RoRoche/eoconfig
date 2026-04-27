@@ -58,21 +58,19 @@ public final class ConfigurationOf implements Configuration {
     private final Properties props;
 
     /**
-     * Primary constructor.
-     *
-     * @param props The properties to create the configuration from
-     */
-    public ConfigurationOf(final Properties props) {
-        this.props = props;
-    }
-
-    /**
      * Secondary constructor that accepts a {@link Scalar} of {@link Properties}.
-     *
      * @param props The scalar of properties to create the configuration from
      */
     public ConfigurationOf(final Scalar<Properties> props) {
         this(new Unchecked<>(props).value());
+    }
+
+    /**
+     * Primary constructor.
+     * @param props The properties to create the configuration from
+     */
+    public ConfigurationOf(final Properties props) {
+        this.props = props;
     }
 
     @Override

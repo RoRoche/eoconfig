@@ -35,11 +35,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link HoconConfiguration}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class HoconConfigurationTest {
+
     @Test
     void isFromHoconFromStringOk() {
         MatcherAssert.assertThat(

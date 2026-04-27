@@ -51,12 +51,36 @@ import org.cactoos.map.MapOf;
  * @since 0.0.1
  */
 public final class OverlayConfiguration extends ConfigurationEnvelope {
+
+    /**
+     * Secondary ctor.
+     * @param base The configuration to wrap
+     * @param map The map of string keys and values providing the properties
+     *  to override the base configuration
+     */
+    public OverlayConfiguration(final Configuration base, final Map<String, String> map) {
+        this(base, new MapConfiguration(map));
+    }
+
+    /**
+     * Secondary ctor.
+     * @param base The configuration to wrap
+     * @param entries The entries of the map of string keys and values
+     *  providing the properties to override the base configuration
+     */
+    @SafeVarargs
+    public OverlayConfiguration(
+        final Configuration base,
+        final Map.Entry<String, String>... entries
+    ) {
+        this(base, new MapOf<>(entries));
+    }
+
     /**
      * Primary ctor.
-     *
-     * @param base The configuration to wrap.
+     * @param base The configuration to wrap
      * @param override The configuration providing the properties
-     *  to override the base configuration.
+     *  to override the base configuration
      */
     public OverlayConfiguration(final Configuration base, final Configuration override) {
         super(
@@ -67,31 +91,5 @@ public final class OverlayConfiguration extends ConfigurationEnvelope {
                 return props;
             }
         );
-    }
-
-    /**
-     * Secondary ctor.
-     *
-     * @param base The configuration to wrap.
-     * @param map The map of string keys and values providing the properties
-     *  to override the base configuration.
-     */
-    public OverlayConfiguration(final Configuration base, final Map<String, String> map) {
-        this(base, new MapConfiguration(map));
-    }
-
-    /**
-     * Secondary ctor.
-     *
-     * @param base The configuration to wrap.
-     * @param entries The entries of the map of string keys and values
-     *  providing the properties to override the base configuration.
-     */
-    @SafeVarargs
-    public OverlayConfiguration(
-        final Configuration base,
-        final Map.Entry<String, String>... entries
-    ) {
-        this(base, new MapOf<>(entries));
     }
 }

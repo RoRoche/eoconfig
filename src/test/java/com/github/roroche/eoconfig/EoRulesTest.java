@@ -36,7 +36,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Architecture tests to check for Elegant Objects principles.
- *
  * @since 0.0.5
  */
 @SuppressWarnings({
@@ -49,37 +48,37 @@ final class EoRulesTest {
     /**
      * Classes to check.
      */
-    private final JavaClasses classes = new ClassFileImporter()
+    private static final JavaClasses CLASSES = new ClassFileImporter()
         .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
         .importPackages("com.github.roroche.eoconfig");
 
     @Test
     void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(this.classes);
+        new ClassesAreAbstractOrFinalRule().check(EoRulesTest.CLASSES);
     }
 
     @Test
     void checksThereAreNoStaticMethods() {
-        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
+        new ClassesShouldHaveNoStaticMethodsRule().check(EoRulesTest.CLASSES);
     }
 
     @Test
     void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
+        new ClassesShouldNotHaveGettersOrSettersRule().check(EoRulesTest.CLASSES);
     }
 
     @Test
     void checksClassesDoNotHavePrivateMethods() {
-        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
+        new ClassesShouldNotHavePrivateMethodsRule().check(EoRulesTest.CLASSES);
     }
 
     @Test
     void checksFieldsAreFinal() {
-        new FieldsShouldBeFinalRule().check(this.classes);
+        new FieldsShouldBeFinalRule().check(EoRulesTest.CLASSES);
     }
 
     @Test
     void checksPublicMethodsAreDeclaredInInterfaces() {
-        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
+        new PublicMethodsDeclaredInInterfacesRule().check(EoRulesTest.CLASSES);
     }
 }

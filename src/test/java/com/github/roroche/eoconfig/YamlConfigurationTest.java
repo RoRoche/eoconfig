@@ -37,11 +37,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link YamlConfiguration}.
- *
  * @since 0.0.1
  */
 @SuppressWarnings("allpublic")
 final class YamlConfigurationTest {
+
     @Test
     void isOk() throws Exception {
         MatcherAssert.assertThat(

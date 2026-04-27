@@ -51,8 +51,15 @@ import org.cactoos.scalar.Unchecked;
 public final class FlattenedYaml extends MapEnvelope<String, String> {
 
     /**
+     * Constructs a FlattenedYaml with an empty prefix.
+     * @param yaml The nested YAML structure to flatten
+     */
+    public FlattenedYaml(final Map<String, Object> yaml) {
+        this("", yaml);
+    }
+
+    /**
      * Constructs a FlattenedYaml with a given prefix.
-     *
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
      */
@@ -74,31 +81,14 @@ public final class FlattenedYaml extends MapEnvelope<String, String> {
                         }
                         final Object value = entry.getValue();
                         if (value instanceof Map) {
-                            flat.putAll(
-                                new FlattenedYaml(
-                                    key,
-                                    (Map<String, Object>) value
-                                )
-                            );
+                            flat.putAll(new FlattenedYaml(key, (Map<String, Object>) value));
                         } else {
-                            flat.put(
-                                key,
-                                String.valueOf(value)
-                            );
+                            flat.put(key, String.valueOf(value));
                         }
                     }
                     return flat;
                 }
             ).value()
         );
-    }
-
-    /**
-     * Constructs a FlattenedYaml with an empty prefix.
-     *
-     * @param yaml The nested YAML structure to flatten
-     */
-    public FlattenedYaml(final Map<String, Object> yaml) {
-        this("", yaml);
     }
 }
