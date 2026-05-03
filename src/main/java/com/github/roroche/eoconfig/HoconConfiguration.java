@@ -60,6 +60,7 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
     /**
      * Secondary ctor.
      * @param config The HOCON configuration to load
+     * @checkstyle ConstructorsCodeFreeCheck (14 lines)
      */
     public HoconConfiguration(final Config config) {
         this(
@@ -78,6 +79,7 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
     /**
      * Secondary ctor.
      * @param content The HOCON configuration string to load
+     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
      */
     public HoconConfiguration(final String content) {
         this(ConfigFactory.parseString(content).resolve());
