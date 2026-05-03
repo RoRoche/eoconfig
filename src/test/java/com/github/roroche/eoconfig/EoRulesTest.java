@@ -47,38 +47,39 @@ final class EoRulesTest {
 
     /**
      * Classes to check.
+     * @checkstyle ProhibitFieldsInTestClassesCheck (4 lines)
      */
-    private static final JavaClasses CLASSES = new ClassFileImporter()
+    private final JavaClasses classes = new ClassFileImporter()
         .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
         .importPackages("com.github.roroche.eoconfig");
 
     @Test
     void checksClassesAreAbstractOrFinal() {
-        new ClassesAreAbstractOrFinalRule().check(EoRulesTest.CLASSES);
+        new ClassesAreAbstractOrFinalRule().check(this.classes);
     }
 
     @Test
     void checksThereAreNoStaticMethods() {
-        new ClassesShouldHaveNoStaticMethodsRule().check(EoRulesTest.CLASSES);
+        new ClassesShouldHaveNoStaticMethodsRule().check(this.classes);
     }
 
     @Test
     void checksClassesDoNotHaveGettersOrSetters() {
-        new ClassesShouldNotHaveGettersOrSettersRule().check(EoRulesTest.CLASSES);
+        new ClassesShouldNotHaveGettersOrSettersRule().check(this.classes);
     }
 
     @Test
     void checksClassesDoNotHavePrivateMethods() {
-        new ClassesShouldNotHavePrivateMethodsRule().check(EoRulesTest.CLASSES);
+        new ClassesShouldNotHavePrivateMethodsRule().check(this.classes);
     }
 
     @Test
     void checksFieldsAreFinal() {
-        new FieldsShouldBeFinalRule().check(EoRulesTest.CLASSES);
+        new FieldsShouldBeFinalRule().check(this.classes);
     }
 
     @Test
     void checksPublicMethodsAreDeclaredInInterfaces() {
-        new PublicMethodsDeclaredInInterfacesRule().check(EoRulesTest.CLASSES);
+        new PublicMethodsDeclaredInInterfacesRule().check(this.classes);
     }
 }
