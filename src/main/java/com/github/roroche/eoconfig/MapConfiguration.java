@@ -62,6 +62,8 @@ public final class MapConfiguration extends ConfigurationEnvelope {
     /**
      * Secondary ctor.
      * @param map The map of string keys and values to load
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (14 lines)
      */
     public MapConfiguration(final Map<String, String> map) {

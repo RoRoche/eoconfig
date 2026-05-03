@@ -60,6 +60,8 @@ public final class ConfigurationOf implements Configuration {
     /**
      * Secondary constructor that accepts a {@link Scalar} of {@link Properties}.
      * @param props The scalar of properties to create the configuration from
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (4 lines)
      */
     public ConfigurationOf(final Scalar<Properties> props) {

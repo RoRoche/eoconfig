@@ -62,6 +62,8 @@ public final class FlattenedYaml extends MapEnvelope<String, String> {
      * Constructs a FlattenedYaml with a given prefix.
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (30 lines)
      */
     @SuppressWarnings("unchecked")

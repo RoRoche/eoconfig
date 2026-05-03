@@ -53,6 +53,8 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
      * @param mapper The ObjectMapper to use for parsing the YAML content
      * @param input The InputStream containing the YAML content
      * @throws IOException if the input cannot be loaded or parsed
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (16 lines)
      */
     public YamlConfiguration(
@@ -76,6 +78,8 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
      * @param mapper The ObjectMapper to use for parsing the YAML content
      * @param input The Input stream containing the YAML content
      * @throws Exception if the resource cannot be loaded or parsed
+     */
+    /*
      * @checkstyle ConstructorsCodeFreeCheck (4 lines)
      */
     public YamlConfiguration(final ObjectMapper mapper, final Input input) throws Exception {
