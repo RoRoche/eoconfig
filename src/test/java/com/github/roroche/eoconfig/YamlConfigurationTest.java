@@ -28,7 +28,7 @@ import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
 import com.github.roroche.eoconfig.matchers.ThrowsException;
-import java.io.UncheckedIOException;
+import java.io.IOException;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.AllOf;
 import org.hamcrest.core.IsNot;
@@ -77,7 +77,7 @@ final class YamlConfigurationTest {
             "A YamlConfiguration throws exception if file not found",
             () -> new YamlConfiguration("non-existing-file.yml"),
             new ThrowsException(
-                UncheckedIOException.class,
+                IOException.class,
                 new StringContains("The resource \"non-existing-file.yml\" was not found")
             )
         );
