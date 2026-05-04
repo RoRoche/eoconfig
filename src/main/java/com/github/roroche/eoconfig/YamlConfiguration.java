@@ -25,10 +25,9 @@ package com.github.roroche.eoconfig;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedHashMap;
 import org.cactoos.Input;
+import org.cactoos.io.InputOf;
 import org.cactoos.io.ResourceOf;
 
 /**
@@ -49,47 +48,35 @@ import org.cactoos.io.ResourceOf;
 public final class YamlConfiguration extends ConfigurationEnvelope {
 
     /**
-     * Secondary constructor that loads properties from a YAML input stream.
-     * @param mapper The ObjectMapper to use for parsing the YAML content
-     * @param input The InputStream containing the YAML content
-     * @throws IOException if the input cannot be loaded or parsed
+     * Secondary ctor.
+     * @param mapper The Jackson mapper to use
+     * @param input The Input to parse
+     * @throws Exception Exception that can occur while parsing
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (16 lines)
-     */
-    public YamlConfiguration(
-        final ObjectMapper mapper,
-        final InputStream input
-    ) throws IOException {
+    public YamlConfiguration(final ObjectMapper mapper, final Input input) throws Exception {
         this(
             new MapConfiguration(
                 new FlattenedYaml(
-                    mapper.readValue(
-                        input,
-                        LinkedHashMap.class
-                    )
+                    new YamlMap(mapper, input)
                 )
             )
         );
     }
 
     /**
-     * Secondary constructor that loads properties from a YAML input stream.
-     * @param mapper The ObjectMapper to use for parsing the YAML content
-     * @param input The Input stream containing the YAML content
-     * @throws Exception if the resource cannot be loaded or parsed
+     * Secondary ctor.
+     * @param mapper The Jackson mapper to use
+     * @param input The InputStream to parse
+     * @throws Exception Exception that can occur while parsing
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
-     */
-    public YamlConfiguration(final ObjectMapper mapper, final Input input) throws Exception {
-        this(mapper, input.stream());
+    public YamlConfiguration(final ObjectMapper mapper, final InputStream input) throws Exception {
+        this(mapper, new InputOf(input));
     }
 
     /**
-     * Secondary constructor that loads properties from a YAML file in the classpath.
-     * @param resource The name of the YAML file in the classpath
-     * @throws Exception if the resource cannot be loaded or parsed
+     * Secondary ctor.
+     * @param resource The file path of a resource to parse
+     * @throws Exception Exception that can occur while parsing
      */
     public YamlConfiguration(final String resource) throws Exception {
         this(
@@ -99,8 +86,8 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
     }
 
     /**
-     * Primary constructor.
-     * @param origin The configuration to decorate
+     * Primary ctor.
+     * @param origin The original {@link Configuration} to wrap
      */
     public YamlConfiguration(final Configuration origin) {
         super(origin);
