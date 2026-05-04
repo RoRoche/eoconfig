@@ -44,7 +44,7 @@ public final class YamlMap extends MapEnvelope<String, Object> {
     public YamlMap(final ObjectMapper mapper, final Input input) throws Exception {
         this(
             new Sticky<>(
-                new ParsedYaml(mapper, input)
+                new ParsedYaml(mapper, input, new MapType())
             )
         );
     }

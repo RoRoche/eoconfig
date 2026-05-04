@@ -49,22 +49,39 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
     private final Input input;
 
     /**
+     * The type reference for deserialization,
+     * ensuring the YAML content is parsed into a LinkedHashMap to preserve order.
+     */
+    /*
+     * @checkstyle IllegalTypeCheck (4 lines)
+     */
+    @SuppressWarnings("PMD.LooseCoupling")
+    private final TypeReference<LinkedHashMap<String, Object>> type;
+
+    /**
      * Primary ctor.
      * @param mapper The Jackson mapper to use
      * @param input The input to parse
+     * @param type The type reference for deserialization
      */
-    public ParsedYaml(final ObjectMapper mapper, final Input input) {
+    @SuppressWarnings({"PMD.LooseCoupling", "NonApiType"})
+    public ParsedYaml(
+        final ObjectMapper mapper,
+        final Input input,
+        final TypeReference<LinkedHashMap<String, Object>> type
+    ) {
         this.mapper = mapper;
         this.input = input;
+        this.type = type;
     }
 
-    @SuppressWarnings({"allfinal", "PMD.UnnecessaryLocalRule", "PMD.LooseCoupling"})
+    @SuppressWarnings({"allfinal", "PMD.UnnecessaryLocalRule"})
     @Override
-    public java.util.Map<String, Object> value() throws Exception {
+    public Map<String, Object> value() throws Exception {
         try (InputStream stream = new InputStreamOf(this.input)) {
             return this.mapper.readValue(
                 stream,
-                new TypeReference<LinkedHashMap<String, Object>>() { }
+                this.type
             );
         }
     }
