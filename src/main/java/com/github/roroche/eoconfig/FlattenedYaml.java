@@ -23,10 +23,8 @@
  */
 package com.github.roroche.eoconfig;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import org.cactoos.map.MapEnvelope;
-import org.cactoos.scalar.Unchecked;
 
 /**
  * A Map that flattens a nested YAML structure into a flat map with dot-separated keys.
@@ -63,35 +61,10 @@ public final class FlattenedYaml extends MapEnvelope<String, String> {
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (30 lines)
-     */
-    @SuppressWarnings("unchecked")
     public FlattenedYaml(
         final String prefix,
         final Map<String, Object> yaml
     ) {
-        super(
-            new Unchecked<>(
-                () -> {
-                    final Map<String, String> flat = new LinkedHashMap<>();
-                    for (final Entry<String, Object> entry : yaml.entrySet()) {
-                        final String key;
-                        if (prefix.isEmpty()) {
-                            key = entry.getKey();
-                        } else {
-                            key = "%s.%s".formatted(prefix, entry.getKey());
-                        }
-                        final Object value = entry.getValue();
-                        if (value instanceof Map) {
-                            flat.putAll(new FlattenedYaml(key, (Map<String, Object>) value));
-                        } else {
-                            flat.put(key, String.valueOf(value));
-                        }
-                    }
-                    return flat;
-                }
-            ).value()
-        );
+        super(new StickyMap<>(new YamlFlattening(prefix, yaml)));
     }
 }

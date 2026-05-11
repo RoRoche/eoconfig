@@ -43,7 +43,11 @@ final class HoconPropertiesTest {
         MatcherAssert.assertThat(
             "A HoconProperties can be created from a HOCON string",
             new HoconProperties(
-                "key1 = value1\nkey2 = value2"
+                String.join(
+                    System.lineSeparator(),
+                    "key1 = value1",
+                    "key2 = value2"
+                )
             ).value(),
             new AllOf<>(
                 new IsNot<>(new IsEmptyProperties()),

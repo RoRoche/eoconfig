@@ -41,7 +41,7 @@ public final class YamlMap extends MapEnvelope<String, Object> {
      * @param mapper The Jackson mapper to use
      * @param input The input to parse
      */
-    public YamlMap(final ObjectMapper mapper, final Input input) throws Exception {
+    public YamlMap(final ObjectMapper mapper, final Input input) {
         this(
             new Sticky<>(
                 new ParsedYaml(mapper, input, new MapType())
@@ -53,10 +53,7 @@ public final class YamlMap extends MapEnvelope<String, Object> {
      * Primary ctor.
      * @param origin The original {@link Map} from YAML
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
-     */
-    public YamlMap(final Scalar<Map<String, Object>> origin) throws Exception {
-        super(origin.value());
+    public YamlMap(final Scalar<Map<String, Object>> origin) {
+        super(new StickyMap<>(origin));
     }
 }

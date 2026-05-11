@@ -24,11 +24,10 @@
 package com.github.roroche.eoconfig;
 
 import java.util.Map;
-import java.util.Properties;
 import org.cactoos.map.MapOf;
 
 /**
- * A utility class for creating configurations from {@link java.util.Map}.
+ * A utility class for creating configurations from {@link Map}.
  *
  * <p><b>Example:</b></p>
  * <pre>{@code
@@ -53,31 +52,10 @@ public final class MapConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
-     * @param props The properties to load
-     */
-    public MapConfiguration(final Properties props) {
-        this(new ConfigurationOf(props));
-    }
-
-    /**
-     * Secondary ctor.
      * @param map The map of string keys and values to load
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (14 lines)
-     */
     public MapConfiguration(final Map<String, String> map) {
-        this(
-            map.entrySet().stream().collect(
-                Properties::new,
-                (final Properties props, final Map.Entry<String, String> entry) ->
-                    props.setProperty(
-                        entry.getKey(),
-                        entry.getValue()
-                    ),
-                Properties::putAll
-            )
-        );
+        this(new ConfigurationOf(new PropertiesOf(map)));
     }
 
     /**

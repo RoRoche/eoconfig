@@ -23,7 +23,6 @@
  */
 package com.github.roroche.eoconfig;
 
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.github.roroche.eoconfig.matchers.HasConfiguration;
 import com.github.roroche.eoconfig.matchers.HasProperty;
 import com.github.roroche.eoconfig.matchers.IsEmptyProperties;
@@ -65,7 +64,7 @@ final class YamlConfigurationTest {
             "A YamlConfiguration throws from empty Properties",
             () -> new YamlConfiguration("empty-application-properties.yml"),
             new ThrowsException(
-                MismatchedInputException.class,
+                UncheckedIOException.class,
                 new StringContains("No content to map due to end-of-input")
             )
         );

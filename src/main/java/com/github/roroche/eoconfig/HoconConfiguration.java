@@ -24,10 +24,6 @@
 package com.github.roroche.eoconfig;
 
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
-import com.typesafe.config.ConfigValue;
-import java.util.Map;
-import java.util.Properties;
 
 /**
  * A utility class for creating configurations from HOCON content.
@@ -51,42 +47,18 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
-     * @param props The properties to load
-     */
-    public HoconConfiguration(final Properties props) {
-        this(new ConfigurationOf(props));
-    }
-
-    /**
-     * Secondary ctor.
      * @param config The HOCON configuration to load
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (14 lines)
-     */
     public HoconConfiguration(final Config config) {
-        this(
-            config.entrySet().stream().collect(
-                Properties::new,
-                (final Properties props, final Map.Entry<String, ConfigValue> entry) ->
-                    props.setProperty(
-                        entry.getKey(),
-                        String.valueOf(entry.getValue().unwrapped())
-                    ),
-                Properties::putAll
-            )
-        );
+        this(new ConfigurationOf(new HoconProperties(() -> config)));
     }
 
     /**
      * Secondary ctor.
      * @param content The HOCON configuration string to load
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
-     */
     public HoconConfiguration(final String content) {
-        this(ConfigFactory.parseString(content).resolve());
+        this(new ConfigurationOf(new HoconProperties(content)));
     }
 
     /**

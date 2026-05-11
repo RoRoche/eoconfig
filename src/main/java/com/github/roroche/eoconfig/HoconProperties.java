@@ -28,6 +28,10 @@ import com.typesafe.config.ConfigValue;
 import java.util.Map;
 import java.util.Properties;
 import org.cactoos.Scalar;
+import org.cactoos.iterable.Mapped;
+import org.cactoos.map.MapEntry;
+import org.cactoos.map.MapOf;
+import org.cactoos.scalar.ScalarEnvelope;
 import org.cactoos.scalar.Unchecked;
 
 /**
@@ -41,12 +45,7 @@ import org.cactoos.scalar.Unchecked;
  *
  * @since 0.0.5
  */
-public final class HoconProperties implements Scalar<Properties> {
-
-    /**
-     * The HOCON configuration to convert.
-     */
-    private final Scalar<Config> config;
+public final class HoconProperties extends ScalarEnvelope<Properties> {
 
     /**
      * Secondary ctor.
@@ -57,22 +56,25 @@ public final class HoconProperties implements Scalar<Properties> {
     }
 
     /**
-     * Secondary ctor.
+     * Primary ctor.
      * @param config The scalar producing the HOCON configuration to convert
      */
+    /*
+     * @checkstyle ConstructorsCodeFreeCheck (16 lines)
+     */
     public HoconProperties(final Scalar<Config> config) {
-        this.config = config;
-    }
-
-    @Override
-    public Properties value() throws Exception {
-        final Properties props = new Properties();
-        for (final Map.Entry<String, ConfigValue> entry : this.config.value().entrySet()) {
-            props.setProperty(
-                entry.getKey(),
-                String.valueOf(entry.getValue().unwrapped())
-            );
-        }
-        return props;
+        super(
+            new PropertiesOf(
+                new MapOf<>(
+                    new Mapped<>(
+                        (final Map.Entry<String, ConfigValue> entry) -> new MapEntry<>(
+                            entry.getKey(),
+                            String.valueOf(entry.getValue().unwrapped())
+                        ),
+                        new Unchecked<>(config).value().entrySet()
+                    )
+                )
+            )
+        );
     }
 }

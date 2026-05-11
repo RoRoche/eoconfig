@@ -26,6 +26,8 @@ package com.github.roroche.eoconfig;
 import java.util.Map;
 import java.util.Properties;
 import org.cactoos.Scalar;
+import org.cactoos.scalar.Folded;
+import org.cactoos.scalar.ScalarEnvelope;
 
 /**
  * A {@link Scalar} that builds a {@link Properties} instance from a
@@ -42,27 +44,28 @@ import org.cactoos.Scalar;
  *
  * @since 0.0.5
  */
-public final class PropertiesOf implements Scalar<Properties> {
-
-    /**
-     * The map of string keys and values to convert.
-     */
-    private final Map<String, String> map;
+public final class PropertiesOf extends ScalarEnvelope<Properties> {
 
     /**
      * Primary constructor.
      * @param map The map of string keys and values to convert
      */
+    /*
+     * @checkstyle ConstructorsCodeFreeCheck (16 lines)
+     */
     public PropertiesOf(final Map<String, String> map) {
-        this.map = map;
-    }
-
-    @Override
-    public Properties value() {
-        final Properties props = new Properties();
-        for (final Map.Entry<String, String> entry : this.map.entrySet()) {
-            props.setProperty(entry.getKey(), entry.getValue());
-        }
-        return props;
+        super(
+            new Folded<>(
+                new Properties(),
+                (final Properties props, final Map.Entry<String, String> entry) -> {
+                    props.setProperty(
+                        entry.getKey(),
+                        entry.getValue()
+                    );
+                    return props;
+                },
+                map.entrySet()
+            )
+        );
     }
 }

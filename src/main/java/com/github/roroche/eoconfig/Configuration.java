@@ -35,6 +35,7 @@ public interface Configuration {
     /**
      * Returns the properties of this configuration.
      * @return The properties of this configuration
+     * @throws Exception Exception that can raise
      */
-    Properties properties();
+    Properties properties() throws Exception;
 }

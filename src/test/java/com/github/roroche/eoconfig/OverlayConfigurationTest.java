@@ -49,13 +49,13 @@ final class OverlayConfigurationTest {
                     new MapEntry<>("key.test1", "value.test1"),
                     new MapEntry<>("key.test2", "value.test2")
                 ),
-                new MapEntry<>("key.test1", "value.test2")
+                new MapEntry<>("key.test2", "value.test2.overridden")
             ),
             new HasConfiguration(
                 new AllOf<>(
                     new IsNot<>(new IsEmptyProperties()),
-                    new HasProperty("key.test1", "value.test2"),
-                    new HasProperty("key.test2", "value.test2")
+                    new HasProperty("key.test1", "value.test1"),
+                    new HasProperty("key.test2", "value.test2.overridden")
                 )
             )
         );

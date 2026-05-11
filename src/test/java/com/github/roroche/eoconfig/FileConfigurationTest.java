@@ -70,7 +70,7 @@ final class FileConfigurationTest {
     void doesNotExist() {
         MatcherAssert.assertThat(
             "A FileConfiguration throws exception if file not found",
-            () -> new FileConfiguration("non-existing-file.properties"),
+            () -> new FileConfiguration("non-existing-file.properties").properties(),
             new ThrowsException(
                 IllegalArgumentException.class,
                 "Resource 'non-existing-file.properties' not found in classpath"
@@ -82,7 +82,7 @@ final class FileConfigurationTest {
     void throwsIfContentIsInvalid() {
         MatcherAssert.assertThat(
             "A FileConfiguration throws exception if file is invalid",
-            () -> new FileConfiguration("invalid-application-test.properties"),
+            () -> new FileConfiguration("invalid-application-test.properties").properties(),
             new ThrowsException(
                 IllegalArgumentException.class,
                 new StringContains("Malformed \\uxxxx encoding.")

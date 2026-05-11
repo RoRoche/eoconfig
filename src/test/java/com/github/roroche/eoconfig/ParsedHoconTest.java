@@ -23,9 +23,9 @@
  */
 package com.github.roroche.eoconfig;
 
-import com.typesafe.config.Config;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.hamcrest.text.IsEqualIgnoringCase;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -36,31 +36,37 @@ import org.junit.jupiter.api.Test;
 final class ParsedHoconTest {
 
     @Test
-    void parsesHoconString() throws Exception {
-        final Config config = new ParsedHocon(
-            "app.name = MyApp\napp.version = 1.0.0"
-        ).value();
+    void parsesHoconString() {
         MatcherAssert.assertThat(
             "A ParsedHocon resolves keys from the input string",
-            config.getString("app.name"),
-            Matchers.equalTo("MyApp")
+            new ParsedHocon(
+                String.join(
+                    System.lineSeparator(),
+                    "app.name = MyApp",
+                    "app.version = 1.0.0"
+                )
+            ).value().getString("app.name"),
+            new IsEqualIgnoringCase("MyApp")
         );
     }
 
     @Test
-    void resolvesSubstitutions() throws Exception {
-        final Config config = new ParsedHocon(
-            "base = MyApp\nname = ${base}-prod"
-        ).value();
+    void resolvesSubstitutions() {
         MatcherAssert.assertThat(
             "A ParsedHocon resolves substitution references",
-            config.getString("name"),
-            Matchers.equalTo("MyApp-prod")
+            new ParsedHocon(
+                String.join(
+                    System.lineSeparator(),
+                    "base = MyApp",
+                    "name = ${base}-prod"
+                )
+            ).value().getString("name"),
+            new IsEqualIgnoringCase("MyApp-prod")
         );
     }
 
     @Test
-    void parsesEmptyString() throws Exception {
+    void parsesEmptyString() {
         MatcherAssert.assertThat(
             "A ParsedHocon yields an empty config from an empty string",
             new ParsedHocon("").value().entrySet(),

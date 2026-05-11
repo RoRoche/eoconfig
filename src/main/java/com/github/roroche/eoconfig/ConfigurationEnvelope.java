@@ -26,7 +26,7 @@ package com.github.roroche.eoconfig;
 import java.util.Properties;
 
 /**
- * A utility class for creating configurations from {@link java.util.Properties}.
+ * A utility class for creating configurations from {@link Properties}.
  * @since 0.0.1
  */
 public abstract class ConfigurationEnvelope implements Configuration {
@@ -45,7 +45,7 @@ public abstract class ConfigurationEnvelope implements Configuration {
     }
 
     @Override
-    public final Properties properties() {
+    public final Properties properties() throws Exception {
         return this.origin.properties();
     }
 }

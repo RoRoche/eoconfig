@@ -26,7 +26,6 @@ package com.github.roroche.eoconfig;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import org.cactoos.map.MapEntry;
 import org.cactoos.map.MapOf;
 import org.hamcrest.MatcherAssert;
@@ -41,11 +40,11 @@ import org.junit.jupiter.api.Test;
 final class YamlFlatteningTest {
 
     @Test
-    void flattensNestedMaps() throws Exception {
+    void flattensNestedMaps() {
         MatcherAssert.assertThat(
             "A YamlFlattening produces dot-separated keys for nested maps",
             new YamlFlattening(
-                new MapOf<String, Object>(
+                new MapOf<>(
                     new MapEntry<>(
                         "app",
                         new MapOf<String, Object>(
@@ -64,7 +63,7 @@ final class YamlFlatteningTest {
     }
 
     @Test
-    void keepsFlatKeysAsIs() throws Exception {
+    void keepsFlatKeysAsIs() {
         MatcherAssert.assertThat(
             "A YamlFlattening stringifies leaf values and leaves keys untouched",
             new YamlFlattening(
@@ -81,7 +80,7 @@ final class YamlFlatteningTest {
     }
 
     @Test
-    void appliesPrefix() throws Exception {
+    void appliesPrefix() {
         final Map<String, Object> root = new LinkedHashMap<>();
         root.put("name", "MyApp");
         MatcherAssert.assertThat(
@@ -92,7 +91,7 @@ final class YamlFlatteningTest {
     }
 
     @Test
-    void isEmptyForEmptyMap() throws Exception {
+    void isEmptyForEmptyMap() {
         MatcherAssert.assertThat(
             "A YamlFlattening is empty when the source map is empty",
             new YamlFlattening(Collections.emptyMap()).value(),

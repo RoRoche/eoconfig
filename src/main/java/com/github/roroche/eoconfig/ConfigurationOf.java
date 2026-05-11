@@ -25,10 +25,9 @@ package com.github.roroche.eoconfig;
 
 import java.util.Properties;
 import org.cactoos.Scalar;
-import org.cactoos.scalar.Unchecked;
 
 /**
- * A utility class for creating configurations from {@link java.util.Properties}.
+ * A utility class for creating configurations from {@link Properties}.
  *
  * <p><b>Example:</b>
  *
@@ -55,29 +54,18 @@ public final class ConfigurationOf implements Configuration {
     /**
      * The properties to create the configuration from.
      */
-    private final Properties props;
+    private final Scalar<Properties> props;
 
     /**
-     * Secondary constructor that accepts a {@link Scalar} of {@link Properties}.
+     * Primary constructor that accepts a {@link Scalar} of {@link Properties}.
      * @param props The scalar of properties to create the configuration from
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
-     */
     public ConfigurationOf(final Scalar<Properties> props) {
-        this(new Unchecked<>(props).value());
-    }
-
-    /**
-     * Primary constructor.
-     * @param props The properties to create the configuration from
-     */
-    public ConfigurationOf(final Properties props) {
         this.props = props;
     }
 
     @Override
-    public Properties properties() {
-        return this.props;
+    public Properties properties() throws Exception {
+        return this.props.value();
     }
 }
