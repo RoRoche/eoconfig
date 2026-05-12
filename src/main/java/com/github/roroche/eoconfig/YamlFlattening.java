@@ -26,6 +26,8 @@ package com.github.roroche.eoconfig;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.cactoos.Scalar;
+import org.cactoos.scalar.Folded;
+import org.cactoos.scalar.ScalarEnvelope;
 
 /**
  * A {@link Scalar} that flattens a nested YAML-like structure into a flat
@@ -51,17 +53,7 @@ import org.cactoos.Scalar;
  *
  * @since 0.0.5
  */
-public final class YamlFlattening implements Scalar<Map<String, String>> {
-
-    /**
-     * The prefix to prepend to keys.
-     */
-    private final String prefix;
-
-    /**
-     * The nested YAML structure to flatten.
-     */
-    private final Map<String, Object> yaml;
+public final class YamlFlattening extends ScalarEnvelope<Map<String, String>> {
 
     /**
      * Secondary ctor with empty prefix.
@@ -76,31 +68,33 @@ public final class YamlFlattening implements Scalar<Map<String, String>> {
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
      */
-    public YamlFlattening(final String prefix, final Map<String, Object> yaml) {
-        this.prefix = prefix;
-        this.yaml = yaml;
-    }
-
-    @Override
+    /*
+     * @checkstyle ConstructorsCodeFreeCheck (27 lines)
+     */
     @SuppressWarnings("unchecked")
-    public Map<String, String> value() {
-        final Map<String, String> flat = new LinkedHashMap<>();
-        for (final Map.Entry<String, Object> entry : this.yaml.entrySet()) {
-            final String key;
-            if (this.prefix.isEmpty()) {
-                key = entry.getKey();
-            } else {
-                key = "%s.%s".formatted(this.prefix, entry.getKey());
-            }
-            final Object value = entry.getValue();
-            if (value instanceof Map) {
-                flat.putAll(
-                    new YamlFlattening(key, (Map<String, Object>) value).value()
-                );
-            } else {
-                flat.put(key, String.valueOf(value));
-            }
-        }
-        return flat;
+    public YamlFlattening(final String prefix, final Map<String, Object> yaml) {
+        super(
+            new Folded<>(
+                new LinkedHashMap<>(),
+                (final Map<String, String> flat, final Map.Entry<String, Object> entry) -> {
+                    final String key;
+                    if (prefix.isEmpty()) {
+                        key = entry.getKey();
+                    } else {
+                        key = "%s.%s".formatted(prefix, entry.getKey());
+                    }
+                    final Object raw = entry.getValue();
+                    if (raw instanceof Map) {
+                        flat.putAll(
+                            new YamlFlattening(key, (Map<String, Object>) raw).value()
+                        );
+                    } else {
+                        flat.put(key, String.valueOf(raw));
+                    }
+                    return flat;
+                },
+                yaml.entrySet()
+            )
+        );
     }
 }

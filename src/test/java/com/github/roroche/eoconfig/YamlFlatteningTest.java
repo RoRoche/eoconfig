@@ -24,8 +24,6 @@
 package com.github.roroche.eoconfig;
 
 import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import org.cactoos.map.MapEntry;
 import org.cactoos.map.MapOf;
 import org.hamcrest.MatcherAssert;
@@ -40,7 +38,7 @@ import org.junit.jupiter.api.Test;
 final class YamlFlatteningTest {
 
     @Test
-    void flattensNestedMaps() {
+    void flattensNestedMaps() throws Exception {
         MatcherAssert.assertThat(
             "A YamlFlattening produces dot-separated keys for nested maps",
             new YamlFlattening(
@@ -63,7 +61,7 @@ final class YamlFlatteningTest {
     }
 
     @Test
-    void keepsFlatKeysAsIs() {
+    void keepsFlatKeysAsIs() throws Exception {
         MatcherAssert.assertThat(
             "A YamlFlattening stringifies leaf values and leaves keys untouched",
             new YamlFlattening(
@@ -80,18 +78,21 @@ final class YamlFlatteningTest {
     }
 
     @Test
-    void appliesPrefix() {
-        final Map<String, Object> root = new LinkedHashMap<>();
-        root.put("name", "MyApp");
+    void appliesPrefix() throws Exception {
         MatcherAssert.assertThat(
             "A YamlFlattening prepends a non-empty prefix",
-            new YamlFlattening("app", root).value(),
+            new YamlFlattening(
+                "app",
+                new MapOf<>(
+                    new MapEntry<>("name", "MyApp")
+                )
+            ).value(),
             Matchers.hasEntry("app.name", "MyApp")
         );
     }
 
     @Test
-    void isEmptyForEmptyMap() {
+    void isEmptyForEmptyMap() throws Exception {
         MatcherAssert.assertThat(
             "A YamlFlattening is empty when the source map is empty",
             new YamlFlattening(Collections.emptyMap()).value(),
