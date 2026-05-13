@@ -25,7 +25,6 @@ package com.github.roroche.eoconfig.matchers;
 
 import com.github.roroche.eoconfig.Configuration;
 import java.util.Properties;
-import org.cactoos.scalar.Unchecked;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
@@ -80,9 +79,7 @@ public final class HasConfiguration extends TypeSafeMatcher<Configuration> {
 
     @Override
     public boolean matchesSafely(final Configuration configuration) {
-        return this.properties.matches(
-            new Unchecked<>(configuration::properties).value()
-        );
+        return this.properties.matches(configuration.properties());
     }
 
     @Override
@@ -96,8 +93,6 @@ public final class HasConfiguration extends TypeSafeMatcher<Configuration> {
         final Configuration configuration,
         final Description description
     ) {
-        description.appendText("was ").appendValue(
-            new Unchecked<>(configuration::properties).value()
-        );
+        description.appendText("was ").appendValue(configuration.properties());
     }
 }
