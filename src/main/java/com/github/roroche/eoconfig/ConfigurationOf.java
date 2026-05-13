@@ -25,6 +25,7 @@ package com.github.roroche.eoconfig;
 
 import java.util.Properties;
 import org.cactoos.Scalar;
+import org.cactoos.scalar.Unchecked;
 
 /**
  * A utility class for creating configurations from {@link Properties}.
@@ -65,7 +66,7 @@ public final class ConfigurationOf implements Configuration {
     }
 
     @Override
-    public Properties properties() throws Exception {
-        return this.props.value();
+    public Properties properties() {
+        return new Unchecked<>(this.props).value();
     }
 }

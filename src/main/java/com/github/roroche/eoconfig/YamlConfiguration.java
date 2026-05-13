@@ -49,9 +49,8 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
      * Secondary ctor.
      * @param mapper The Jackson mapper to use
      * @param input The Input to parse
-     * @throws Exception Exception that can occur while parsing
      */
-    public YamlConfiguration(final ObjectMapper mapper, final Input input) throws Exception {
+    public YamlConfiguration(final ObjectMapper mapper, final Input input) {
         this(
             new MapConfiguration(
                 new FlattenedYaml(
@@ -64,9 +63,8 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
     /**
      * Secondary ctor.
      * @param resource The file path of a resource to parse
-     * @throws Exception Exception that can occur while parsing
      */
-    public YamlConfiguration(final String resource) throws Exception {
+    public YamlConfiguration(final String resource) {
         this(
             new ObjectMapper(new YAMLFactory()),
             new ResourceOf(resource)

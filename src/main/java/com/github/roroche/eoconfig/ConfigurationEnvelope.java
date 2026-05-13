@@ -45,7 +45,7 @@ public abstract class ConfigurationEnvelope implements Configuration {
     }
 
     @Override
-    public final Properties properties() throws Exception {
+    public final Properties properties() {
         return this.origin.properties();
     }
 }
