@@ -302,4 +302,6 @@ dist
 
 .DS_Store
 
+uv.lock
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,maven,java,node
