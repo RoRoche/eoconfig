@@ -5,7 +5,7 @@ Lightweight, immutable and composable configuration library for Java.
 `eoconfig` helps you read and compose configuration in a clean and testable way.
 
 [![Build Status](https://github.com/RoRoche/eoconfig/actions/workflows/build-java.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions)
-[![YAML Lint](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions/workflows/yamllint.yml)
+[![Python CI](https://github.com/RoRoche/eoconfig/actions/workflows/python.yml/badge.svg)](https://github.com/RoRoche/eoconfig/actions/workflows/python.yml)
 ![Nodes.js CI](https://github.com/RoRoche/eoconfig/actions/workflows/build-npm.yml/badge.svg)
 
 ![EO principles respected here](https://www.elegantobjects.org/badge.svg)
