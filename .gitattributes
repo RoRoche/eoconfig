@@ -1,2 +1,1 @@
-Makefile text eol=lf
-*.mk text eol=lf
+* text=auto eol=lf

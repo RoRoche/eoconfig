@@ -74,8 +74,14 @@ jobs:
           echo "=== BEFORE ==="
           cat -A Makefile
           uv run mbake format Makefile
+
           echo "=== AFTER ==="
           cat -A Makefile
+
+          echo "=== STATS ==="
+          wc -l Makefile
+          od -c Makefile | tail -n 5
+
           echo "=== DIFF ==="
           git diff -- Makefile
 
