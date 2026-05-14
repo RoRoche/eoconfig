@@ -38,6 +38,8 @@ Lightweight, immutable and composable configuration library for Java.
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.roroche/eoconfig.svg?label=Maven%20Central)](https://search.maven.org/artifact/com.github.roroche/eoconfig)
 [![Javadoc](https://javadoc.io/badge2/com.github.roroche/eoconfig/javadoc.svg)](https://javadoc.io/doc/com.github.roroche/eoconfig)
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/RoRoche/eoconfig/blob/main/LICENSE)
+
 ## ✨ Features
 
 - Immutable configuration objects
