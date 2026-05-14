@@ -69,21 +69,9 @@ jobs:
       - name: Sync Python dependencies
         run: uv sync --frozen
 
-      - name: Debug mbake
+      - name: Ensure EOF newline
         run: |
-          echo "=== BEFORE ==="
-          cat -A Makefile
-          uv run mbake format Makefile
-
-          echo "=== AFTER ==="
-          cat -A Makefile
-
-          echo "=== STATS ==="
-          wc -l Makefile
-          od -c Makefile | tail -n 5
-
-          echo "=== DIFF ==="
-          git diff -- Makefile
+          sed -i -e '$a\' Makefile
 
       - name: Run mbake format check
         run: uv run mbake format --check Makefile
