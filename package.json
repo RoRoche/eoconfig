@@ -35,5 +35,8 @@
     },
     "validate-branch-name": {
         "pattern": "^(main)$|^(dependabot\\/.*)$|^(feature|fix|hotfix|release|doc)\\/\\d+\\/?[a-z0-9-]+$"
+    },
+    "dependencies": {
+        "@conventional-changelog/git-client": "^3.1.0"
     }
 }
