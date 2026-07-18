@@ -15,6 +15,7 @@ Lightweight, immutable and composable configuration library for Java.
 [![PDD status](https://www.0pdd.com/svg?name=RoRoche/eoconfig)](https://www.0pdd.com/p?name=RoRoche/eoconfig)
 
 [![codecov](https://codecov.io/gh/RoRoche/eoconfig/branch/main/graph/badge.svg)](https://codecov.io/gh/RoRoche/eoconfig)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FRoRoche%2Feoconfig%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/RoRoche/eoconfig/main)
 
 [![Hits-of-Code](https://hitsofcode.com/github/RoRoche/eoconfig?branch=main)](https://hitsofcode.com/github/RoRoche/eoconfig/view?branch=main)
 
