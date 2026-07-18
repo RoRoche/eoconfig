@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
 final class YamlConfigurationTest {
 
     @Test
-    void isOk() throws Exception {
+    void isOk() {
         MatcherAssert.assertThat(
             "A YamlConfiguration can be created from Map.Entry",
             new YamlConfiguration("application-properties.yml"),
