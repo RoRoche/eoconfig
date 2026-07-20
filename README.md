@@ -93,9 +93,9 @@ Thank you for helping improve `eoconfig` 🚀
 
 <a href="https://www.star-history.com/?repos=RoRoche%2Feoconfig&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&theme=dark&legend=top-left&sealed_token=PcZoEXhaok6welhRY9DB4Q9cZmA_y6DdeDphK4UxNGbNw0FzAHOJTlWYcH7gXEnQhePwY_XZC39qOz96jUiMW5wSXHg9P_rH-8h59T8iW2FMzWrVWA_qHBAY48eqBeMI_jEdAJJehxyqwKi8U5E9cRjppaD0g9cKydXl5OfOZ1oT-Pt8VGatO3cvoINy" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&legend=top-left&sealed_token=PcZoEXhaok6welhRY9DB4Q9cZmA_y6DdeDphK4UxNGbNw0FzAHOJTlWYcH7gXEnQhePwY_XZC39qOz96jUiMW5wSXHg9P_rH-8h59T8iW2FMzWrVWA_qHBAY48eqBeMI_jEdAJJehxyqwKi8U5E9cRjppaD0g9cKydXl5OfOZ1oT-Pt8VGatO3cvoINy" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&legend=top-left&sealed_token=PcZoEXhaok6welhRY9DB4Q9cZmA_y6DdeDphK4UxNGbNw0FzAHOJTlWYcH7gXEnQhePwY_XZC39qOz96jUiMW5wSXHg9P_rH-8h59T8iW2FMzWrVWA_qHBAY48eqBeMI_jEdAJJehxyqwKi8U5E9cRjppaD0g9cKydXl5OfOZ1oT-Pt8VGatO3cvoINy" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&theme=dark&legend=top-left&sealed_token=8q5jf5UxK836SbTbH28DK_5QuycZLiQl9QEoMZNRoghooVDS6r7I_V36D1CY_RFsWZsvnq4zXebG7GLM89s1EdiJcQiWIT3I2-OhHjwSqAyvzbwgz0nBkw" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&legend=top-left&sealed_token=8q5jf5UxK836SbTbH28DK_5QuycZLiQl9QEoMZNRoghooVDS6r7I_V36D1CY_RFsWZsvnq4zXebG7GLM89s1EdiJcQiWIT3I2-OhHjwSqAyvzbwgz0nBkw" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=RoRoche/eoconfig&type=date&legend=top-left&sealed_token=8q5jf5UxK836SbTbH28DK_5QuycZLiQl9QEoMZNRoghooVDS6r7I_V36D1CY_RFsWZsvnq4zXebG7GLM89s1EdiJcQiWIT3I2-OhHjwSqAyvzbwgz0nBkw" />
  </picture>
 </a>
 
