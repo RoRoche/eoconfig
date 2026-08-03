@@ -46,7 +46,7 @@
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pit-dashboard-reporter.version>0.3.18</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
-    <cactoos.version>0.61.0</cactoos.version>
+    <cactoos.version>0.61.1</cactoos.version>
     <config.version>1.4.9</config.version>
     <jackson.version>2.22.1</jackson.version>
     <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
