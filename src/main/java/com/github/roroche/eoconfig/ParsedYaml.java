@@ -75,7 +75,7 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
         this.type = type;
     }
 
-    @SuppressWarnings({"allfinal", "PMD.UnnecessaryLocalRule"})
+    @SuppressWarnings("allfinal")
     @Override
     public Map<String, Object> value() throws Exception {
         try (InputStream stream = new InputStreamOf(this.input)) {

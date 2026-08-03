@@ -82,7 +82,7 @@ final class FileConfigurationTest {
     void throwsIfContentIsInvalid() {
         MatcherAssert.assertThat(
             "A FileConfiguration throws exception if file is invalid",
-            () -> new FileConfiguration("invalid-application-test.properties").properties(),
+            () -> new FileConfiguration("application-test.properties.invalid").properties(),
             new ThrowsException(
                 IllegalArgumentException.class,
                 new StringContains("Malformed \\uxxxx encoding.")
