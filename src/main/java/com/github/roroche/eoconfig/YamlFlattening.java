@@ -68,9 +68,6 @@ public final class YamlFlattening extends ScalarEnvelope<Map<String, String>> {
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (27 lines)
-     */
     @SuppressWarnings("unchecked")
     public YamlFlattening(final String prefix, final Map<String, Object> yaml) {
         super(

@@ -59,9 +59,6 @@ public final class HoconProperties extends ScalarEnvelope<Properties> {
      * Primary ctor.
      * @param config The scalar producing the HOCON configuration to convert
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (16 lines)
-     */
     public HoconProperties(final Scalar<Config> config) {
         super(
             new PropertiesOf(

@@ -45,9 +45,6 @@ public final class StickyMap<K, V> extends MapEnvelope<K, V> {
      * Primary ctor.
      * @param origin The scalar producing the backing map
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (4 lines)
-     */
     public StickyMap(final Scalar<Map<K, V>> origin) {
         super(new Unchecked<>(origin).value());
     }

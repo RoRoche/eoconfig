@@ -50,9 +50,6 @@ public final class PropertiesOf extends ScalarEnvelope<Properties> {
      * Primary constructor.
      * @param map The map of string keys and values to convert
      */
-    /*
-     * @checkstyle ConstructorsCodeFreeCheck (16 lines)
-     */
     public PropertiesOf(final Map<String, String> map) {
         super(
             new Folded<>(
