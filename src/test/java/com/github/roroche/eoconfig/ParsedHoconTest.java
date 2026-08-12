@@ -24,7 +24,7 @@
 package com.github.roroche.eoconfig;
 
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.hamcrest.text.IsEqualIgnoringCase;
 import org.junit.jupiter.api.Test;
 
@@ -70,7 +70,7 @@ final class ParsedHoconTest {
         MatcherAssert.assertThat(
             "A ParsedHocon yields an empty config from an empty string",
             new ParsedHocon("").value().entrySet(),
-            Matchers.empty()
+            new IsEmptyCollection<>()
         );
     }
 }

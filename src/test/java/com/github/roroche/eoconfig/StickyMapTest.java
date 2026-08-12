@@ -27,7 +27,10 @@ import java.util.Collections;
 import org.cactoos.map.MapEntry;
 import org.cactoos.map.MapOf;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import org.hamcrest.collection.IsMapContaining;
+import org.hamcrest.collection.IsMapWithSize;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -41,16 +44,16 @@ final class StickyMapTest {
     void exposesScalarBackedMap() {
         MatcherAssert.assertThat(
             "A StickyMap exposes the entries of the scalar-produced map",
-            new StickyMap<String, String>(
+            new StickyMap<>(
                 () -> new MapOf<String, String>(
                     new MapEntry<>("a", "1"),
                     new MapEntry<>("b", "2")
                 )
             ),
-            Matchers.allOf(
-                Matchers.hasEntry("a", "1"),
-                Matchers.hasEntry("b", "2"),
-                Matchers.aMapWithSize(2)
+            new AllOf<>(
+                new IsMapContaining<>(new IsEqual<>("a"), new IsEqual<>("1")),
+                new IsMapContaining<>(new IsEqual<>("b"), new IsEqual<>("2")),
+                new IsMapWithSize<>(new IsEqual<>(2))
             )
         );
     }
@@ -60,7 +63,7 @@ final class StickyMapTest {
         MatcherAssert.assertThat(
             "A StickyMap is empty when the scalar returns an empty map",
             new StickyMap<>(Collections::emptyMap),
-            Matchers.anEmptyMap()
+            new IsMapWithSize<>(new IsEqual<>(0))
         );
     }
 }

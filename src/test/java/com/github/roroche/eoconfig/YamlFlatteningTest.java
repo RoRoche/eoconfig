@@ -27,7 +27,10 @@ import java.util.Collections;
 import org.cactoos.map.MapEntry;
 import org.cactoos.map.MapOf;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import org.hamcrest.collection.IsMapContaining;
+import org.hamcrest.collection.IsMapWithSize;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -52,10 +55,10 @@ final class YamlFlatteningTest {
                     )
                 )
             ).value(),
-            Matchers.allOf(
-                Matchers.hasEntry("app.name", "MyApp"),
-                Matchers.hasEntry("app.version", "1.0.0"),
-                Matchers.aMapWithSize(2)
+            new AllOf<>(
+                new IsMapContaining<>(new IsEqual<>("app.name"), new IsEqual<>("MyApp")),
+                new IsMapContaining<>(new IsEqual<>("app.version"), new IsEqual<>("1.0.0")),
+                new IsMapWithSize<>(new IsEqual<>(2))
             )
         );
     }
@@ -70,9 +73,9 @@ final class YamlFlatteningTest {
                     new MapEntry<>("count", 42)
                 )
             ).value(),
-            Matchers.allOf(
-                Matchers.hasEntry("key", "value"),
-                Matchers.hasEntry("count", "42")
+            new AllOf<>(
+                new IsMapContaining<>(new IsEqual<>("key"), new IsEqual<>("value")),
+                new IsMapContaining<>(new IsEqual<>("count"), new IsEqual<>("42"))
             )
         );
     }
@@ -87,7 +90,7 @@ final class YamlFlatteningTest {
                     new MapEntry<>("name", "MyApp")
                 )
             ).value(),
-            Matchers.hasEntry("app.name", "MyApp")
+            new IsMapContaining<>(new IsEqual<>("app.name"), new IsEqual<>("MyApp"))
         );
     }
 
@@ -96,7 +99,7 @@ final class YamlFlatteningTest {
         MatcherAssert.assertThat(
             "A YamlFlattening is empty when the source map is empty",
             new YamlFlattening(Collections.emptyMap()).value(),
-            Matchers.anEmptyMap()
+            new IsMapWithSize<>(new IsEqual<>(0))
         );
     }
 }
