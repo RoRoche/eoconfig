@@ -30,7 +30,7 @@ import org.cactoos.scalar.Unchecked;
 /**
  * A utility class for creating configurations from {@link Properties}.
  *
- * <p><b>Example:</b>
+ * <p><b>Example:</b></p>
  *
  * <pre>{@code
  * // Load configuration from properties
