@@ -35,4 +35,11 @@ import java.util.LinkedHashMap;
  */
 @SuppressWarnings("PMD.LooseCoupling")
 public final class MapType extends TypeReference<LinkedHashMap<String, Object>> {
+
+    /**
+     * Map type constructor.
+     */
+    public MapType() {
+        super();
+    }
 }

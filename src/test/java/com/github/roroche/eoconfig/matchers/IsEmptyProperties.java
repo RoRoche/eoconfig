@@ -33,6 +33,13 @@ import org.hamcrest.TypeSafeMatcher;
  */
 public final class IsEmptyProperties extends TypeSafeMatcher<Properties> {
 
+    /**
+     * Empty properties matcher constructor.
+     */
+    public IsEmptyProperties() {
+        super();
+    }
+
     @Override
     public boolean matchesSafely(final Properties props) {
         return props.isEmpty();
