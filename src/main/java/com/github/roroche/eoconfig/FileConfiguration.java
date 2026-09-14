@@ -45,6 +45,7 @@ public final class FileConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary constructor that loads properties from a file in the classpath.
+     *
      * @param name The name of the properties file in the classpath
      */
     @SuppressWarnings({"allfinal", "nullfree"})
@@ -74,6 +75,7 @@ public final class FileConfiguration extends ConfigurationEnvelope {
 
     /**
      * Primary constructor.
+     *
      * @param origin The configuration to decorate
      */
     public FileConfiguration(final Configuration origin) {

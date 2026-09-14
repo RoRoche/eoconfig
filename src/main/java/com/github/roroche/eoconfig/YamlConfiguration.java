@@ -47,6 +47,7 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param mapper The Jackson mapper to use
      * @param input The Input to parse
      */
@@ -62,6 +63,7 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param resource The file path of a resource to parse
      */
     public YamlConfiguration(final String resource) {
@@ -73,6 +75,7 @@ public final class YamlConfiguration extends ConfigurationEnvelope {
 
     /**
      * Primary ctor.
+     *
      * @param origin The original {@link Configuration} to wrap
      */
     public YamlConfiguration(final Configuration origin) {

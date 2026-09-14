@@ -29,6 +29,7 @@ import uk.org.webcompere.systemstubs.environment.EnvironmentVariables;
 
 /**
  * A {@link Configuration} that sets environment variables before returning the properties.
+ *
  * @since 0.0.1
  */
 public final class ConfigurationWithEnvVars extends ConfigurationEnvelope {
@@ -36,6 +37,7 @@ public final class ConfigurationWithEnvVars extends ConfigurationEnvelope {
     /**
      * Constructs a ConfigurationWithEnvVars with the given origin configuration,
      * environment variables, and map of environment variables to set.
+     *
      * @param origin The origin configuration
      * @param envvars The environment variables to set
      * @param map The map of environment variables to set
@@ -52,6 +54,7 @@ public final class ConfigurationWithEnvVars extends ConfigurationEnvelope {
     /**
      * Constructs a ConfigurationWithEnvVars with the given origin configuration,
      * environment variables, and map of environment variables to set.
+     *
      * @param origin The origin configuration
      * @param envvars The environment variables to set
      * @param map The map of environment variables to set

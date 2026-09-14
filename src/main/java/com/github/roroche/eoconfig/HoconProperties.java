@@ -49,6 +49,7 @@ public final class HoconProperties extends ScalarEnvelope<Properties> {
 
     /**
      * Secondary ctor.
+     *
      * @param content The HOCON configuration string to parse
      */
     public HoconProperties(final String content) {
@@ -57,6 +58,7 @@ public final class HoconProperties extends ScalarEnvelope<Properties> {
 
     /**
      * Primary ctor.
+     *
      * @param config The scalar producing the HOCON configuration to convert
      */
     public HoconProperties(final Scalar<Config> config) {

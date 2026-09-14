@@ -43,6 +43,7 @@ public final class StickyMap<K, V> extends MapEnvelope<K, V> {
 
     /**
      * Primary ctor.
+     *
      * @param origin The scalar producing the backing map
      */
     public StickyMap(final Scalar<Map<K, V>> origin) {

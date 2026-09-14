@@ -36,6 +36,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Architecture tests to check for Elegant Objects principles.
+ *
  * @since 0.0.5
  */
 @SuppressWarnings({
@@ -47,6 +48,7 @@ final class EoRulesTest {
 
     /**
      * Classes to check.
+     *
      * @checkstyle ProhibitFieldsInTestClassesCheck (4 lines)
      */
     private final JavaClasses classes = new ClassFileImporter()

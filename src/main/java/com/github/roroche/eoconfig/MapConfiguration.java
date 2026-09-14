@@ -52,6 +52,7 @@ public final class MapConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param map The map of string keys and values to load
      */
     public MapConfiguration(final Map<String, String> map) {
@@ -60,6 +61,7 @@ public final class MapConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param entries The entries of the map of string keys and values to load
      */
     @SafeVarargs
@@ -69,6 +71,7 @@ public final class MapConfiguration extends ConfigurationEnvelope {
 
     /**
      * Primary constructor.
+     *
      * @param origin The configuration to decorate
      */
     public MapConfiguration(final Configuration origin) {

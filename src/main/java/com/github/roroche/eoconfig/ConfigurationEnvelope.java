@@ -27,6 +27,7 @@ import java.util.Properties;
 
 /**
  * A utility class for creating configurations from {@link Properties}.
+ *
  * @since 0.0.1
  */
 public abstract class ConfigurationEnvelope implements Configuration {
@@ -38,6 +39,7 @@ public abstract class ConfigurationEnvelope implements Configuration {
 
     /**
      * Creates a new configuration envelope.
+     *
      * @param origin The configuration to decorate
      */
     protected ConfigurationEnvelope(final Configuration origin) {

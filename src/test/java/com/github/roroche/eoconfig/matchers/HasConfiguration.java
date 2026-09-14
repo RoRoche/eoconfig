@@ -71,6 +71,7 @@ public final class HasConfiguration extends TypeSafeMatcher<Configuration> {
 
     /**
      * Constructs a HasConfiguration matcher with the given properties matcher.
+     *
      * @param properties The matcher for the properties of the configuration
      */
     public HasConfiguration(final Matcher<Properties> properties) {

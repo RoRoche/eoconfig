@@ -46,6 +46,7 @@ public final class EnvironmentConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param keys The list of keys to filter the environment variables
      */
     public EnvironmentConfiguration(final List<String> keys) {
@@ -61,6 +62,7 @@ public final class EnvironmentConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param keys The keys to filter the environment variables
      */
     public EnvironmentConfiguration(final String... keys) {
@@ -69,6 +71,7 @@ public final class EnvironmentConfiguration extends ConfigurationEnvelope {
 
     /**
      * Creates a new configuration envelope.
+     *
      * @param origin The configuration to decorate
      */
     public EnvironmentConfiguration(final Configuration origin) {

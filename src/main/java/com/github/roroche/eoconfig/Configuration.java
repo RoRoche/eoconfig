@@ -27,6 +27,7 @@ import java.util.Properties;
 
 /**
  * A configuration that provides properties.
+ *
  * @since 0.0.1
  */
 @FunctionalInterface
@@ -34,6 +35,7 @@ public interface Configuration {
 
     /**
      * Returns the properties of this configuration.
+     *
      * @return The properties of this configuration
      */
     Properties properties();

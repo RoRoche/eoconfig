@@ -33,6 +33,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link HoconProperties}.
+ *
  * @since 0.0.5
  */
 @SuppressWarnings("allpublic")

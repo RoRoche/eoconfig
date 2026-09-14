@@ -65,6 +65,7 @@ public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable>
 
     /**
      * Secondary constructor that uses a case-insensitive string matcher for the message.
+     *
      * @param expected The expected type of the exception to be thrown
      * @param message The expected message of the exception to be thrown
      */
@@ -77,6 +78,7 @@ public final class ThrowsException extends TypeSafeDiagnosingMatcher<Executable>
 
     /**
      * Primary constructor.
+     *
      * @param expected The expected type of the exception to be thrown
      * @param message The expected message of the exception to be thrown
      */

@@ -34,6 +34,7 @@ import org.cactoos.io.InputStreamOf;
 
 /**
  * A representation of parsed YAML content as a map.
+ *
  * @since 0.0.5
  */
 public final class ParsedYaml implements Scalar<Map<String, Object>> {
@@ -51,8 +52,7 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
     /**
      * The type reference for deserialization,
      * ensuring the YAML content is parsed into a LinkedHashMap to preserve order.
-     */
-    /*
+     *
      * @checkstyle IllegalTypeCheck (4 lines)
      */
     @SuppressWarnings("PMD.LooseCoupling")
@@ -60,6 +60,7 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
 
     /**
      * Primary ctor.
+     *
      * @param mapper The Jackson mapper to use
      * @param input The input to parse
      * @param type The type reference for deserialization

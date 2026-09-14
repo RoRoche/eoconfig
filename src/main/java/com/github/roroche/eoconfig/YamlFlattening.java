@@ -57,6 +57,7 @@ public final class YamlFlattening extends ScalarEnvelope<Map<String, String>> {
 
     /**
      * Secondary ctor with empty prefix.
+     *
      * @param yaml The nested YAML structure to flatten
      */
     public YamlFlattening(final Map<String, Object> yaml) {
@@ -65,6 +66,7 @@ public final class YamlFlattening extends ScalarEnvelope<Map<String, String>> {
 
     /**
      * Primary ctor.
+     *
      * @param prefix The prefix to prepend to keys (use empty string for no prefix)
      * @param yaml The nested YAML structure to flatten
      */

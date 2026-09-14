@@ -32,12 +32,14 @@ import org.cactoos.scalar.Sticky;
 
 /**
  * A {@link Map} built from YAML.
+ *
  * @since 0.0.5
  */
 public final class YamlMap extends MapEnvelope<String, Object> {
 
     /**
      * Secondary ctor.
+     *
      * @param mapper The Jackson mapper to use
      * @param input The input to parse
      */
@@ -51,6 +53,7 @@ public final class YamlMap extends MapEnvelope<String, Object> {
 
     /**
      * Primary ctor.
+     *
      * @param origin The original {@link Map} from YAML
      */
     public YamlMap(final Scalar<Map<String, Object>> origin) {

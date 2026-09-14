@@ -59,6 +59,7 @@ public final class ConfigurationOf implements Configuration {
 
     /**
      * Primary constructor that accepts a {@link Scalar} of {@link Properties}.
+     *
      * @param props The scalar of properties to create the configuration from
      */
     public ConfigurationOf(final Scalar<Properties> props) {

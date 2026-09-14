@@ -47,6 +47,7 @@ public final class ParsedHocon implements Scalar<Config> {
 
     /**
      * Primary ctor.
+     *
      * @param content The HOCON configuration string to parse
      */
     public ParsedHocon(final String content) {

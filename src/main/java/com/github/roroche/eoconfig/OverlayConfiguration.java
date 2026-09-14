@@ -54,6 +54,7 @@ public final class OverlayConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param base The configuration to wrap
      * @param map The map of string keys and values providing the properties
      *  to override the base configuration
@@ -64,6 +65,7 @@ public final class OverlayConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param base The configuration to wrap
      * @param entries The entries of the map of string keys and values
      *  providing the properties to override the base configuration
@@ -78,6 +80,7 @@ public final class OverlayConfiguration extends ConfigurationEnvelope {
 
     /**
      * Primary ctor.
+     *
      * @param base The configuration to wrap
      * @param override The configuration providing the properties
      *  to override the base configuration

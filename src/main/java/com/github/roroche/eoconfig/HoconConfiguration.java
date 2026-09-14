@@ -47,6 +47,7 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param config The HOCON configuration to load
      */
     public HoconConfiguration(final Config config) {
@@ -55,6 +56,7 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
 
     /**
      * Secondary ctor.
+     *
      * @param content The HOCON configuration string to load
      */
     public HoconConfiguration(final String content) {
@@ -63,6 +65,7 @@ public final class HoconConfiguration extends ConfigurationEnvelope {
 
     /**
      * Primary constructor.
+     *
      * @param origin The configuration to decorate
      */
     public HoconConfiguration(final Configuration origin) {

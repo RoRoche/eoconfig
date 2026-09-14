@@ -48,6 +48,7 @@ public final class PropertiesOf extends ScalarEnvelope<Properties> {
 
     /**
      * Primary constructor.
+     *
      * @param map The map of string keys and values to convert
      */
     public PropertiesOf(final Map<String, String> map) {

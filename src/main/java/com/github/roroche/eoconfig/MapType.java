@@ -28,6 +28,7 @@ import java.util.LinkedHashMap;
 
 /**
  * {@link java.util.Map} type for parsing.
+ *
  * @since 0.0.5
  */
 /*
