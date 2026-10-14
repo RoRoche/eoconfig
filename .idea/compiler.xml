@@ -12,13 +12,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/com/uber/nullaway/nullaway/0.14.2/nullaway-0.14.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/dataflow-nullaway/4.2.3/dataflow-nullaway-4.2.3.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_core/2.50.0/error_prone_core-2.50.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotation/2.50.0/error_prone_annotation-2.50.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_check_api/2.50.0/error_prone_check_api-2.50.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/github/kevinstern/software-and-algorithms/1.0/software-and-algorithms-1.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/github/ben-manes/caffeine/caffeine/3.0.5/caffeine-3.0.5.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/checker-qual/3.19.0/checker-qual-3.19.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/checkerframework/checker-qual/4.2.3/checker-qual-4.2.3.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/googlejavaformat/google-java-format/1.35.0/google-java-format-1.35.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/pcollections/pcollections/4.0.1/pcollections-4.0.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/guava/guava/33.5.0-jre/guava-33.5.0-jre.jar" />
@@ -31,7 +33,7 @@
           <entry name="$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.50.0/error_prone_annotations-2.50.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/4.33.2/protobuf-java-4.33.2.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar" />
           <entry name="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" />
         </processorPath>
         <module name="eoconfig" />
@@ -40,7 +42,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="eoconfig" options="-XDcompilePolicy=simple -XDaddTypeAnnotationsToSymbol=true --should-stop=ifError=FLOW &quot;-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle&quot; -J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED" />
+      <module name="eoconfig" options="-XDcompilePolicy=simple -XDaddTypeAnnotationsToSymbol=true --should-stop=ifError=FLOW &quot;-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche&quot; -J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED" />
     </option>
   </component>
   <component name="MavenTasksManager">
