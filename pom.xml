@@ -47,6 +47,7 @@
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
     <pit-dashboard-reporter.version>0.3.20</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
+    <spotbugs-maven-plugin.version>4.10.5.0</spotbugs-maven-plugin.version>
     <cactoos.version>0.63.0</cactoos.version>
     <config.version>1.4.9</config.version>
     <jackson.version>2.22.3</jackson.version>
@@ -243,6 +244,26 @@
             <goals>
               <goal>check</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${spotbugs-maven-plugin.version}</version>
+        <configuration>
+          <effort>Max</effort>
+          <threshold>Low</threshold>
+          <failOnError>true</failOnError>
+          <xmlOutput>true</xmlOutput>
+        </configuration>
+        <executions>
+          <execution>
+            <id>spotbugs-check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>verify</phase>
           </execution>
         </executions>
       </plugin>
