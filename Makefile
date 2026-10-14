@@ -54,21 +54,10 @@ watch-mutation: ## Run mutation testing whenever Java sources change
 		-- make mutation
 
 lint: ## Check code formatting
-	@npx validate-branch-name
-	@$(MVN) sortpom:verify
-	@$(MVN) license:check
-	@$(MVN) qulice:check
-	@$(MVN) youshallnotpass:youshallnotpass
-	@$(MVN) jtcop:check
-	@uv run yamllint .
-	@uv run mbake format --check Makefile
-	@uv run mbake validate Makefile
-	@npx markdownlint "**/*.md"
-	@npx textlint "**/*.md"
+	@mise run lint
 
 lint-fix: ## Fix formatting automatically
-	@$(MVN) sortpom:sort
-	@$(MVN) license:format
+	@mise run lint-fix
 
 force-test: ## Force unit tests to run even if sources are unchanged
 	@rm -f $(SENTINEL_TEST)
