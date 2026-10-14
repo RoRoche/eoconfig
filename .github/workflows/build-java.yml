@@ -70,6 +70,9 @@ jobs:
           disable_search: true
           verbose: true
 
+      - name: You shall not pass
+        run: mvn youshallnotpass:youshallnotpass
+
       - name: jtcop
         run: mvn jtcop:check
 
