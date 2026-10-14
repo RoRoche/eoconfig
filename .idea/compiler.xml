@@ -43,4 +43,14 @@
       <module name="eoconfig" options="-XDcompilePolicy=simple -XDaddTypeAnnotationsToSymbol=true --should-stop=ifError=FLOW &quot;-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle&quot; -J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED -J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED -J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED" />
     </option>
   </component>
+  <component name="MavenTasksManager">
+    <option name="afterCompileTasks">
+      <set>
+        <MavenCompilerTask>
+          <option name="projectPath" value="$PROJECT_DIR$/pom.xml" />
+          <option name="goal" value="spotbugs:check" />
+        </MavenCompilerTask>
+      </set>
+    </option>
+  </component>
 </project>
