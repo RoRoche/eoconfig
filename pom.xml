@@ -144,9 +144,9 @@
             <!-- Required to preserve type annotations for Error Prone on JDK 21. -->
             <arg>-XDaddTypeAnnotationsToSymbol=true</arg>
             <arg>--should-stop=ifError=FLOW</arg>
-            <!-- Qulice uses @checkstyle tags for local Checkstyle suppressions. -->
+            <!-- Qulice runs general checks; the compiler runs only NullAway. -->
             <!-- NullAway checks production and test code in the project namespace. -->
-            <arg>-Xplugin:ErrorProne -XepOpt:Javadoc:customBlockTags=checkstyle -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche</arg>
+            <arg>-Xplugin:ErrorProne -XepDisableAllChecks -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.github.roroche</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
             <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
