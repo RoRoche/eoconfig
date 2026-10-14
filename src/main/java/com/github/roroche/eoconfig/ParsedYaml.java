@@ -64,6 +64,8 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
      * @param mapper The Jackson mapper to use
      * @param input The input to parse
      * @param type The type reference for deserialization
+     * @checkstyle ConstructorsCodeFreeCheck (14 lines)
+     *  Defensive copy isolates the mapper from subsequent caller changes.
      */
     @SuppressWarnings({"PMD.LooseCoupling", "NonApiType"})
     public ParsedYaml(
@@ -71,7 +73,7 @@ public final class ParsedYaml implements Scalar<Map<String, Object>> {
         final Input input,
         final TypeReference<LinkedHashMap<String, Object>> type
     ) {
-        this.mapper = mapper;
+        this.mapper = mapper.copy();
         this.input = input;
         this.type = type;
     }
