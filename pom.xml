@@ -46,7 +46,7 @@
     <jtcop.version>1.4.4</jtcop.version>
     <pitest.version>1.30.0</pitest.version>
     <pitest.junit5.plugin.version>1.2.3</pitest.junit5.plugin.version>
-    <pit-dashboard-reporter.version>0.3.20</pit-dashboard-reporter.version>
+    <pit-dashboard-reporter.version>0.3.21</pit-dashboard-reporter.version>
     <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
     <spotbugs-maven-plugin.version>4.10.5.0</spotbugs-maven-plugin.version>
     <cactoos.version>0.63.0</cactoos.version>
